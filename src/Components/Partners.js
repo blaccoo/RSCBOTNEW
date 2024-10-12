@@ -181,7 +181,7 @@ const Partners = () => {
                 <span className='flex text-secondary items-center w-fit text-[15px]'>
                
                   <span className=''>
-                    +{formatNumber(task.bonus)} $BLEGGS
+                    +{formatNumber(task.bonus)} $RSC
                   </span>
                 </span>
               </div>

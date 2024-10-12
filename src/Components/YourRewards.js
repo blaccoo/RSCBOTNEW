@@ -46,7 +46,7 @@ const YourRewards = () => {
                 <span className='flex items-center w-fit text-[15px]'>
                    
                    <span className='font-semibold text-primary'>
-                     +{formatNumber(checkinRewards)} $BLEGGS
+                     +{formatNumber(checkinRewards)} $RSC
                    </span>
                  </span>
         
@@ -73,7 +73,7 @@ const YourRewards = () => {
                 <span className='flex items-center w-fit text-[15px]'>
                    
                    <span className='font-semibold text-primary'>
-                     +{formatNumber(taskPoints)} $BLEGGS
+                     +{formatNumber(taskPoints)} $RSC
                    </span>
                  </span>
         
@@ -99,7 +99,7 @@ const YourRewards = () => {
                 <span className='flex items-center w-fit text-[15px]'>
                    
                    <span className='font-semibold text-primary'>
-                     +{formatNumber(miningTotal)} $BLEGGS
+                     +{formatNumber(miningTotal)} $RSC
                    </span>
                  </span>
         
@@ -127,7 +127,7 @@ const YourRewards = () => {
                 <span className='flex items-center w-fit text-[15px]'>
                    
                    <span className='font-semibold text-primary'>
-                     +{formatNumber(premiumReward)} $BLEGGS
+                     +{formatNumber(premiumReward)} $RSC
                    </span>
                  </span>
         

@@ -1,5 +1,5 @@
 {
-  "name": "gamadogs",
+  "name": "risingcoin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "@tonconnect/ui-react": "^2.0.6",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "env": "^0.0.2",
     "express": "^4.19.2",
@@ -33,7 +34,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "GENERATE_SOURCEMAP=false PORT=3001 react-scripts start",
+    "start": "cross-env GENERATE_SOURCEMAP=false PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -159,7 +159,7 @@ useEffect(() => {
 
             
 
-          <TonConnectUIProvider manifestUrl="https://v2.bleggs.com/tonconnect-manifest.json">
+          <TonConnectUIProvider manifestUrl="https://v2.RSC.com/tonconnect-manifest.json">
         
           <UserProvider>
             <AnimatePresence mode="wait">

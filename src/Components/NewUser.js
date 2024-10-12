@@ -406,7 +406,7 @@ const NewUser = ({setChecker}) => {
       </h2>
   
       <p className='text-[16px] font-semibold pb-14'>
-        Here is your $BLEGGS rewards
+        Here is your $RSC rewards
       </p>
   
       <div className={``}>
@@ -427,7 +427,7 @@ const NewUser = ({setChecker}) => {
       </p>
   
       <p className='text-[16px] !mt-0'>
-      $BLEGGS
+      $RSC
       </p>
   
   
@@ -476,7 +476,7 @@ Daily Checkin
     </p>
 
     <p className='text-[16px] text-white !mt-1'>
-  +{formatNumber(checkinPoint)} $BLEGGS
+  +{formatNumber(checkinPoint)} $RSC
     </p>
 
     <div className={``}>

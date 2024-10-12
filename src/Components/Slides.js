@@ -8,9 +8,9 @@ const slides = [
     link: '/checkin',
   },
   {
-    title: '$BLEGGS COMMUNITY',
+    title: '$RSC COMMUNITY',
     description: 'Join GamaDogs community channel',
-    link: 'https://t.me/bleggs',
+    link: 'https://t.me/RSC',
   },
 ];
 

@@ -50,7 +50,7 @@ const ReferralRewards = () => {
               <p className="font-medium text-center">Great job!</p>
             </div>
             <h3 className="font-medium text-[20px] text-[#ffffff] pt-2 pb-2">
-              <span className="text-accent">+{formatNumber(reward.bonusAward)}</span> $BLEGGS CLAIMED
+              <span className="text-accent">+{formatNumber(reward.bonusAward)}</span> $RSC CLAIMED
             </h3>
             <p className="pb-6 text-[#bfbfbf] text-[15px] w-full text-center">
               Keep inviting friends to unlock new rewards! Amazing things await!
