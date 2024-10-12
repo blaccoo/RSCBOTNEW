@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/favicon.png" rel="icon" />
+<title>Documentation | Gama </title>
+<meta name="description" content="Your ThemeForest item Name and description">
+<meta name="author" content="harnishdesign.net">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo --> 
+        <a class="logo ml-md-3" href="index.html" title="iDocs Template"> <img src="assets/images/logo.png" style="width: 50px;" alt="iDocs Template"/> </a> 
+		<span class="text-2 ml-2">v1.0</span> 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+        
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+           
+            <li><a target="_blank" href="https://t.me/itking007">Other Telgram mini apps</a></li>
+            <li><a target="_blank" href="https://t.me/itking007">Support</a></li>
+          </ul>
+        </div>
+        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+          <li class="social-icons-twitter"><a data-toggle="tooltip" href="https://x.com/IvayloBorisov93" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+          <li class="social-icons-youtube"><a data-toggle="tooltip" href="https://www.youtube.com/@companybro-digital" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-youtube"></i></a></li>
+          <li class="social-icons-telegram"><a data-toggle="tooltip" href="https://t.me/companybrodigital" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-telegram"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-light">
+      <ul class="nav flex-column ">
+        <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#idocs_installation">Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_html_structure">.ENV EDIT</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_sass">Firestore Collections and Users data</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_color_schemes">Database Collections</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_theme_customization">Firebase settings Collection</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_logo_settings">Logo Settings</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_layout">Text Changes</a>
+          <ul class="nav flex-column">
+			<li class="nav-item"><a class="nav-link" href="#idocs_header">NPM install and NPM run build</a></li>
+			<li class="nav-item"><a class="nav-link" href="#idocs_navbar">Telegram bot and webhook.php</a></li>
+			<li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Admin login</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_video">Video Installation</a>
+ 
+		</li>
+ 
+		<li class="nav-item"><a class="nav-link" href="#idocs_faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_source_credits">Source & Credits</a></li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_support">Support</a></li>
+		<li class="nav-item"><a class="nav-link" href="#idocs_templates">More Templates</a></li>
+		<li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
+			<ul class="nav flex-column">
+             <li class="nav-item"><a class="nav-link" href="#v1-0">v1.0</a></li>
+          </ul>
+		</li>
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        
+        <!-- Getting Started
+		============================ -->
+        <section id="idocs_start">
+        <h1>Documentation</h1>
+        <h2>Gama  - Mining game telegram mini app bot</h2>
+        <p class="lead">Thank you so much for purchasing our item from codecanyon.</p>
+		<hr>
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<ul class="list-unstyled">
+					<li><strong>Version:</strong> 1.0</li>
+					<li><strong>Author:</strong> <a href="https://t.me/companybrodigital" target="_blank">CompanyBro</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<ul class="list-unstyled">
+					<li><strong class="font-weight-700">Created:</strong> 30 september, 2024</li>
+					<li><strong>Update:</strong> 30 september, 2024</li>
+				</ul>
+			</div>
+		</div>
+        <p class="alert alert-info">If you have any questions that are beyond the scope of this help file, Please feel free to send message via <a target="_blank" href="https://t.me/itking007">Telegram</a>.</p>
+        </section>
+        
+		<hr class="divider">
+		
+        <!-- Installation
+		============================ -->
+        <section id="idocs_installation">
+          <h2>Installation</h2>
+          <p class="lead">Follow the steps below to setup your site template:</p>
+          <ol>
+            <li>Unzip the downloaded package and open the <strong>/Gama  - code </strong> folder to find all the software files. You will need to move this files to folder in your desktop for example!</li>
+            <li>We are going to prepare our files for uploading in our server with the following steps:
+            <ul>
+              <li><code>Create firebase</code> - <a href="https://www.youtube.com/watch?v=TW02hwhBvo4">How to create Firebase/Firestore account?</a></li>
+              <li><code>Creating telegram bot</code> - <a href="https://www.youtube.com/watch?v=UQrcOj63S2o">How to create Telegram bot with BotFather?</a></li>
+			<li><code>Install node.js</code> - <a href="https://nodejs.org/en">Download Node.js</a>
+			  <ul>
+                <li><code>Install visual studio code </code> <a href="https://code.visualstudio.com/">Download Visual studio Code</a></li>
+                <li><code>Open the project using visual studio code</code></li>
+                <li><code>Open new terminal</code></li>
+                <li><code>Run in terminal following command</code> - npm install</li>
+                <li><code>Rebrand </code> – Search and replace all texts.</li>
+              </ul>
+			</li>
+			<li><code>npm install</code> - this will install all neccessary node modules for your project
+			</ul>
+            </li>
+            <li>npm run build , will create a build folder</li>
+            <li>uploading your bulld to your server!</li>
+          </ol>
+        </section>
+        
+		<hr class="divider">
+		
+        <!-- ENV File
+		============================ -->
+        <section id="idocs_html_structure">
+          <h2>.env edit</h2>
+          <p>*Before start editin your .env file please create your firebase account and get your project credentials:<br>
+            How to create firebase firestore account <a class="ml-1" target="_blank" href="https://www.youtube.com/watch?v=TW02hwhBvo4"><i class="fas fa-external-link-alt"></i> Click here</a></p>
+          <pre><code class="html"> 
+              REACT_APP_API_KEY = "AIzaSyBct9so1Lp0UQywGj3W97ox0WEAV4w4P4Y"  //Do not copy this replace it with your APP_API_KEY
+              REACT_APP_AUTH_DOMAIN = "Gama -master.firebaseapp.com"       //Do not copy this replace it with your APP_AUTH DOMAIN
+              REACT_APP_PROJECT_ID = "Gama -master"                        //Do not copy this replace it with your APP_PROJECT_ID
+              REACT_APP_STORAGE_BUCKET = "Gama -master.appspot.com"        //Do not copy this replace it with your APP_STORAGE_BUCKET
+              REACT_APP_MESSAGING_SENDER_ID = "404396778619"                 //Do not copy this replace it with your APP_MESSAGING_SENDER_ID
+              REACT_APP_APP_ID = "1:404396778619:web:e0cc9e40e6f7f989266ede" //Do not copy this replace it with your APP_APP_ID
+              CHAT_MEMBER = "https://t.me/itking007"                        //Do not copy this replace it with your telegram channel or group
+              REACT_APP_MEASUREMENT_ID = "TEST"                             //Do not copy this replace it with your Analitics code here example (G-15515G)
+          </code></pre>
+          <p class="alert alert-info">If you need more information, please contact us in telegram: <a target="_blank" href="https://t.me/itking007">https://t.me/itking007</a></p>
+        </section>
+        
+		<hr class="divider">
+		        
+		<!-- Firestore Collections and data
+		============================ -->
+        <section id="idocs_sass">
+          <h2>Firestore Collections and Users data</h2>
+          First when you have finished your firebase project registration go to build -> authentication section as is shown on the image<pre>
+
+            <a class="popup-img" href="assets/images/demos/firestore_authentication1.0.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.0.png" alt=""></a>
+          
+            <p>Create sign in provider with email and password</p>
+            <a class="popup-img" href="assets/images/demos/firestore_authentication1.1.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.1.png" alt=""></a><br>
+            <p>Now please create user *Note this user will be used for the administrative part of your application<br>you can change the password aways after that and create as much as you want users</p>
+            <a class="popup-img" href="assets/images/demos/firestore_authentication1.2.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.2.png" alt=""></a><br>
+            <p>Our user is ready <strong style="color:red">Please copy the user ID this is important</strong></p>
+            <a class="popup-img" href="assets/images/demos/firestore_authentication1.3.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.3.png" alt=""></a><br>
+        </section>
+        
+		<hr class="divider">
+		
+		<!-- Database Collections
+		============================ -->
+        <section id="idocs_color_schemes">
+          <h2>Database Collections</h2>
+          <p>Now we are going to build our database collections <strong>Starting with "users"</strong> remember the user id that you already copied from authentication will serve us here</p>
+
+      
+         <p>Please click on "Firestore database" and then click on "Start collection" you will see a popup which you need to fill as following</p>
+         <a class="popup-img" href="assets/images/demos/firestore_authentication1.4.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.4.png" alt=""></a><br>
+
+         <p>Now copy your authentication user id and paste it on <strong>document ID </strong> create 3 new fields <ul><li>user_id - again your authentication user id</li><li>email - the email you provided on user creation in authentication</li><li>role - admin</li></ul></p>
+         <a class="popup-img" href="assets/images/demos/firestore_authentication1.5.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.5.png" alt=""></a><br>
+
+        </section>
+        
+		<hr class="divider">
+		
+		<!-- Firebase rules
+		============================ -->
+        <section id="idocs_theme_customization">
+          <h2>Firebase settings Collection</h2>
+          <p>Please start new collection named settings as we show on the image bellow</p>
+          <a class="popup-img" href="assets/images/demos/firestore_authentication1.6.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.6.png" alt=""></a><br>
+
+          <p>after this please add this id as your document id <stron style="color:red">61gP4nP9aXZCx5D1ywgZ</stron> we need to add one field wich is called <strong style="collor:red">showWalletConnect(string) - and value(true)</strong></p>
+          <a class="popup-img" href="assets/images/demos/firestore_authentication1.7.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.7.png" alt=""></a><br>
+        
+        
+        <p>Firebase rules </p>
+        <a class="popup-img" href="assets/images/demos/firestore_authentication2.5.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.5.png" alt=""></a><br>
+
+        <code>
+
+          rules_version = '2';
+
+            service cloud.firestore {
+              match /databases/{database}/documents {
+                // Allow anyone to read and write to any document
+                match /{document=**} {
+                  allow read, write: if true;
+                }
+              }
+            }
+
+        </code>
+        
+        </section>
+        
+		<hr class="divider">
+		
+        <!-- Logo Settings
+		============================ -->
+        <section id="idocs_logo_settings">
+          <h2>Logo Settings</h2>
+          <p>The tap logos are located in Gama  - Code <code>&lt;Public folder&gt;</code>
+            replace the following files with your logos 
+            <ul><li>tapme.webp</li><li>tapme.png</li><li>tapme1.png</li><li>tapme1.webp</li></ul>
+            <a class="popup-img" href="assets/images/demos/firestore_authentication1.8.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.8.png" alt=""></a><br>
+          </p>
+        </section>
+		
+        
+		<hr class="divider">
+		
+		<!-- Layout
+		============================ -->
+        <section id="idocs_layout">
+          <h2>Text Changes</h2>
+          <p class="lead mb-5">Please open your project with visual studio code</p>
+          <a class="popup-img" href="assets/images/demos/firestore_authentication1.9.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication1.9.png" alt=""></a><br>
+          <p class="lead mb-5">then search on the entire base code for "Gama "</p>
+          <a class="popup-img" href="assets/images/demos/firestore_authentication2.0.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.0.png" alt=""></a><br>
+        </section>
+		
+		
+        <!-- Header
+		============================ -->
+        <section id="idocs_header">
+          <h2>NPM install and NPM run build</h2>
+          <p>Let's now install all required packages and run our build:</p>
+          
+          <h4>NPM install</h4>
+          <p>Open new terminal in visual studio code. <span class="text-info">After this run <strong>npm install</strong>.</span></p>
+          <p><a class="popup-img" href="assets/images/demos/firestore_authentication2.1.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.1.png" alt=""></a></p>
+          
+          <p><a class="popup-img" href="assets/images/demos/firestore_authentication2.2.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.2.png" alt=""></a></p>
+          
+
+          <h4>Upload the code from the build folder</h4>
+          <p>Please select all files from your build folder and upload it on the root of your domain or subdomain</p>
+          <p><a class="popup-img" href="assets/images/demos/firestore_authentication2.3.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.3.png" alt=""></a></p>
+ 
+ 
+            </strong>
+            
+          </ul>
+
+        </section>
+		
+		<hr class="divider">
+		
+		<!-- Navbar
+		============================ -->
+        <section id="idocs_navbar">
+          <h2>Telegram bot and webhook.php</h2>
+		  <p class="lead">Please open webhook.php on your server and edit the api key , text and urls </p>
+      <p><a class="popup-img" href="assets/images/demos/firestore_authentication2.4.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.4.png" alt=""></a></p>
+
+
+      <ul>
+           
+        <li><strong>Create your telegram bot: first you will need <i>telegram account</i> when you are in your telegram account please search for 
+        "BotFather" - bot in telegram <img src="assets/images/step2.png"><br>
+        after you complete this step now we can create our telegram bot!
+        To do this please write in the message section "/newbot" <img src="assets/images/step3.png"><br>
+        Now give to your bot name for example "MyClicker Game" , after enter your bot name again but like this "my_clicker_game_bot" - this is necccesary to obtain a bot url<br>
+
+        <img src="assets/images/step4.png">
+
+          save your bot name : <p color="red"> my_clicker_game_bot</p> and api key example with the code from the image :<p color="red">7231905217:AAHmo8TT19oCXIxtHYIFjmnb038tJtnwmtM</p> <br>
+
+          now let's create a webhook : 
+          if you have uploaded the script to your hosting please edit this link 
+
+          <i>https://api.telegram.org/bot<i style="color:red">your_api_key_here</i>/setwebhook?url=https://<i style="color:red">your_domain_name_here</i>/webhook.php<br>
+        the final result need to looks like this <i>https://api.telegram.org/bot7231905217:AAHmo8TT19oCXIxtHYIFjmnb038tJtnwmtM/setwebhook?url=https://borisov.eu/webhook.php</i>
+        </i>
+
+        <p>now lets play your bot click on start get the message and start play your game </p>
+        </section>
+		
+		<hr class="divider">
+		
+		<!-- Sidebar
+		============================ -->
+        <section id="idocs_sidebar">
+          <h2>Admin login</h2>
+          <p>your url of admin login is : https://your-url.com/dashboardAdx</code>
+            replace with your domain name and login with your user email and password created in authentication 
+            <p><a class="popup-img" href="assets/images/demos/firestore_authentication2.6.png"><img class="img-fluid border" src="assets/images/demos/firestore_authentication2.6.png" alt=""></a></p>
+		</section>
+		
+		<hr class="divider">
+		
+       
+		
+		<!-- Video
+		============================ -->
+        <section id="idocs_video">
+          <h2>Video Installation</h2>
+          
+		  <h3 class="mt-5">Video install part 1</h3>
+		  <div class="embed-responsive embed-responsive-16by9">
+   <video class="embed-responsive-item" src="assets/video/1.mp4" controls></video>
+</div>
+
+<h3 class="mt-5">Video install part 2</h3>
+<div class="embed-responsive embed-responsive-16by9">
+  <video class="embed-responsive-item" src="assets/video/2.mp4" controls></video>
+</div>
+ 
+        </section>
+        
+		 
+		<hr class="divider">
+		
+		<!-- FAQ
+		============================ -->
+    <section id="idocs_faq">
+      <h2>FAQ</h2>
+      <p class="text-4">Our frequently asked questions (FAQ) section aims to provide detailed answers to common questions about using and purchasing our product. Please review the information below for further insights.</p>
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="accordion accordion-alterate arrow-right" id="popularTopics">
+            
+            <div class="card">
+              <div class="card-header" id="heading1">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    Can I customize my product?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
+                <div class="card-body">
+                  Yes, you have full freedom to customize the product to meet your unique needs and preferences. We provide you with all the necessary files, and you're welcome to modify any aspect of the product, including design elements, features, and functionalities.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading2">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    Can I resell the product?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#popularTopics">
+                <div class="card-body">
+                  No, reselling the product is strictly prohibited. You are granted a license for personal or client use, but redistributing or selling it on other platforms or to third parties violates our terms of use.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading3">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    Do you offer free installation?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#popularTopics">
+                <div class="card-body">
+                  Yes, we provide free installation services with every purchase. Our team will assist you in setting up the product on your server, ensuring it is fully functional and ready for use.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading4">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    Are updates free?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#popularTopics">
+                <div class="card-body">
+                  Absolutely! We provide free updates to ensure that your product stays up to date with the latest features, security patches, and improvements. You'll receive notifications for all major and minor updates.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading5">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                    What does the extended license cover?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#popularTopics">
+                <div class="card-body">
+                  The extended license allows you to use the product for commercial purposes, including deploying it for your clients' projects. This license is ideal for agencies or developers offering customization services to their clients.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading6">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    How long does it take to handle customer requests?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#popularTopics">
+                <div class="card-body">
+                  We handle customer requests within 2-3 business days. Our support team is dedicated to resolving your issues efficiently, though response times may vary during weekends or holidays.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading7">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                    Do you offer custom project services?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#popularTopics">
+                <div class="card-body">
+                  Yes, we are available for custom projects. Whether you need additional features, integration with other platforms, or custom designs, our team is ready to collaborate with you. Contact us to discuss your project requirements.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading8">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                    Where can I view official discounts?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#popularTopics">
+                <div class="card-body">
+                  All official discounts and promotional offers can be viewed on our Codecanyon profile. Be sure to check regularly for any special deals that may be available.
+                </div>
+              </div>
+            </div>
+    
+            <div class="card">
+              <div class="card-header" id="heading9">
+                <h5 class="mb-0">
+                  <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                    Where can I purchase this product?
+                  </a>
+                </h5>
+              </div>
+              <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#popularTopics">
+                <div class="card-body">
+                  This product is exclusively available on Codecanyon. We do not authorize third-party resellers, so please purchase only through official channels to ensure you receive legitimate support and updates.
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+    
+        
+		<hr class="divider">
+        
+        <!-- Source & Credits
+		============================ -->
+        <section id="idocs_source_credits">
+          <h2>Source & Credits</h2>
+          <h4>Images:</h4>
+          <ul>
+            <li>Unsplash - <a target="_blank" href="https://unsplash.com/">https://unsplash.com/</a></li>
+          </ul>
+		  <h4>Fonts:</h4>
+          <ul>
+            <li>Icons Font Face - <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a></li>
+          </ul>
+          <h4>Scripts:</h4>
+          <ul>
+            <li>jQuery - <a target="_blank" href="http://www.jquery.com/">http://www.jquery.com/</a></li>
+            <li>Bootstrap 4 - <a target="_blank" href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
+			<li>Highlight Js - <a target="_blank" href="https://highlightjs.org/">https://highlightjs.org/</a></li>
+			<li>jQuery easing - <a target="_blank" href="http://gsgd.co.uk/sandbox/jquery/easing/">http://gsgd.co.uk/sandbox/jquery/easing/</a></li>
+            <li>Magnific Popup - <a target="_blank" href="http://dimsemenov.com/plugins/magnific-popup/">http://dimsemenov.com/plugins/magnific-popup/</a></li>
+          </ul>
+        </section>
+        
+		<hr class="divider">
+		
+		<!-- Support
+		============================ -->
+        <section id="idocs_support">
+          <h2>Support</h2>
+          <p>If this documentation doesn't answer your questions, So, Please send us message via <a class="btn btn-primary" target="_blank" href="https://t.me/itking007">Telegram</a></p>
+		  <p> We are located in GMT +5:30 time zone and we answer all questions within 12-24 hours in weekdays. In some rare cases the waiting time can be to 48 hours. (except holiday seasons which might take longer).</p>
+          <div class="alert alert-warning mb-4"><span class="badge badge-danger text-uppercase">Note:</span> While we aim to provide the best support possible, please keep in mind that it only extends to verified buyers and only to issues related to our template like bugs and errors. Custom modifications or third party module implementations are not included.</div>
+		  <h4>Don’t forget to Rate this software
+			<i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i> <i class="fas fa-star text-warning"></i>
+		  </h4>
+		  <div class="alert alert-success">
+            Please Add your Review (Opinion) for Our template. It would be a great support for us.<br>
+            Go to your <strong>Codecanyon Profile</strong> > <strong>Downloads Tab</strong> > & then You can Rate & Review for our software.<br>
+			Thank You.
+          </div>
+        </section>
+		
+		<hr class="divider">
+		
+		<!-- More Templates
+		============================ -->
+     
+		
+        <!-- Changelog
+		============================ -->
+		
+        <section id="idocs_changelog">
+          <h2>Changelog</h2>
+          <p class="text-4">See what's new added, changed, fixed, improved or updated in the latest versions. </p>
+		  <p class="alert alert-info mb-5"> For Future Updates Follow Us <a target="_blank" href="https://t.me/companybrodigital">@telegram</a> </p>
+  
+		  <hr class="divider">
+		  
+          <h3 id="v1-0">Version 1.0 <small class="text-muted">(30 september, 2024)</small></h3>
+          <p>Initial Release</p>
+        </section>        
+        
+      </div>
+    </div>
+	
+  </div>
+  <!-- Content end --> 
+  
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+ 
+      <p class="text-center">Copyright &copy; 2024 <a href="https://t.me/itking007">Gama  - clone</a>. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank" href="https://t.me/itking007">companybro</a>.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
