@@ -9,7 +9,7 @@ const slides = [
   },
   {
     title: '$RSC COMMUNITY',
-    description: 'Join GamaDogs community channel',
+    description: 'Join RISINGCOIN community channel',
     link: 'https://t.me/RSC',
   },
 ];

@@ -402,7 +402,7 @@ const NewUser = ({setChecker}) => {
     <div className='w-full flex flex-col space-y-5 items-center'>
   
       <h2 className='font-bold text-[30px] text-center w-full'>
-        {premium ? 'You are the best' : 'Welcome to GamaDogs'}
+        {premium ? 'You are the best' : 'Welcome to RISINGCOIN'}
       </h2>
   
       <p className='text-[16px] font-semibold pb-14'>
