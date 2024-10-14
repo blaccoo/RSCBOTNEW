@@ -1,7 +1,7 @@
 body{
-  background: radial-gradient(circle at center,#023744,#000);
+  /* background: radial-gradient(circle at center,#023744,#000); */
   /* background: linear-gradient(to top, #000, #181100); */
-  /* background: #150c17; */
+  background: #000;
   background-color: #000;
   color: #fff;
   max-height: 100vh;
