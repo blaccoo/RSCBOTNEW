@@ -410,7 +410,7 @@ const NewUser = ({setChecker}) => {
       </p>
   
       <div className={``}>
-        <img src='/stars.svg' alt='sdf' className='w-[80px] premiumsvg'/>
+        <img src='/rsclogo.png' alt='sdf' className='w-[80px] premiumsvg'/>
       </div>
   
       <p className='text-[24px] text-white font-bold !mt-3'>

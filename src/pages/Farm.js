@@ -312,7 +312,7 @@ const CryptoFarming = () => {
           </button>
 
         <div className="w-fit bg-cards px-4 py-2 text-[15px] font-semibold rounded-full flex items-center justify-center space-x-1">
-          <img src="/stars.svg" alt="sfdf" className="w-[14px]"/>
+          <img src="/rsclogo.png" alt="sfdf" className="w-[14px]"/>
           <span className="text-secondary">Balance</span> <span> {formatNumber(balance)} </span>
         </div>
 
