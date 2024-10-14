@@ -66,7 +66,7 @@ const LoginComp = () => {
         ) : (
           <div className="form-wrapper flex flex-col items-start">
           <div className="w-full text-center pb-4 flex flex-col items-center justify-center">
-            <img src='rsclogo.png' alt="ddfd" className="w-[100px]"/>
+            <img src='rsclogo2.png' alt="ddfd" className="w-[100px]"/>
             <h1 className="text-[24px] sm:text-[28px] font-medium pb-1">
              {process.env.REACT_APP_PROJECT_NAME_SMALL} <br/>Admin Dashboard
             </h1>
