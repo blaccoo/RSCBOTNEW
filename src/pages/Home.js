@@ -171,7 +171,7 @@ useEffect(() => {
             Mobile rocks for gaming 😎 Open on your mobile device to play now!
           </p>
           <img 
-            src='/rsclogo.png'
+            src='/rsclogo2.png'
             alt="stars"
             className='w-[200px]'
           />

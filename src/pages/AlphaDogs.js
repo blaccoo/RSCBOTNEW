@@ -83,7 +83,7 @@ const checkers = () => {
 
 <div className='w-full relative flex flex-col px-6 pt-6 items-center'>
 
-        <img src='rsclogo.png' alt='stars' className='w-[60px]'/>
+        <img src='rsclogo2.png' alt='stars' className='w-[60px]'/>
         <h4 className='font-semibold text-[32px] pt-2'>
           {formatNumber(balance)}
         </h4>
@@ -131,7 +131,7 @@ const checkers = () => {
           <div className='w-full h-full relative pb-24 flex items-center justify-center flex-col space-y-3'>
         <div className='absolute w-[180px] h-[180px]'>
 
-          <img src='/rsclogo.png' alt='gods' className='w-full'/>
+          <img src='/rsclogo2.png' alt='gods' className='w-full'/>
 
         </div>
 
