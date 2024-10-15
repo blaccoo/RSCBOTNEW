@@ -106,7 +106,7 @@ const BoostRank = () => {
         <span className="font-medium text-[20px] text-[#ffffff] pt-2 pb-2 flex flex-col justify-center w-full text-center items-center space-x-1">
           
           <span className='flex items-center justify-center space-x-[2px] text-[18px]'>
-<img src='/dogs.webp' alt='sdfd' className='w-[15px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[15px]'/>
 
           <span className="text-accent">+{selectedPower.capacity} $RSC</span>
               </span>
@@ -178,7 +178,7 @@ const BoostRank = () => {
                 <div className="w-full flex justify-center flex-col items-center">
                  
 
-<img src='/dogs.webp' alt='sdfd' className='w-[70px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[70px]'/>
 
                     <h3 className="font-semibold text-center text-[20px] pt-2 pb-4">
                      Get more {process.env.REACT_APP_PROJECT_NAME_SMALL}
@@ -193,7 +193,7 @@ className='w-full bg-cards py-4 px-4 rounded-[8px] flex justify-between items-ce
 <span className='w-[24px] h-[24px] fanbg border-[#616161] border-[1px] flex justify-center rounded-full items-center text-center relative'>
 <img src='/fan.webp' alt='dscfd' className='w-[18px] h-[18px]'/>
 <span className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[14px] w-[14px] flex justify-center items-center'>
-<img src='/dogs.webp' alt='sdfd' className='w-[7px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[7px]'/>
 </span>
 </span>
 <span className='text-[14px] font-medium'>
@@ -234,7 +234,7 @@ className='w-full bg-cards py-4 px-4 rounded-[8px] flex justify-between items-ce
                 <div className="w-full flex justify-center flex-col items-center">
                  
 
-<img src='/dogs.webp' alt='sdfd' className='w-[70px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[70px]'/>
 
 
 

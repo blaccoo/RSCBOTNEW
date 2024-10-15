@@ -77,7 +77,7 @@ const TonTask = () => {
         <span className="font-medium text-[20px] text-[#ffffff] pt-2 pb-2 flex flex-col justify-center w-full text-center items-center space-x-1">
           
           <span className='flex items-center justify-center space-x-[2px] text-[18px]'>
-<img src='/dogs.webp' alt='sdfd' className='w-[15px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[15px]'/>
 
           <span className="text-accent">+10,000 $RSC CLAIMED</span>
               </span>
@@ -183,7 +183,7 @@ className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-
                 <div className="w-full flex justify-center flex-col items-center">
                  
 
-<img src='/dogs.webp' alt='sdfd' className='w-[70px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[70px]'/>
 
 
 

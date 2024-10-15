@@ -329,7 +329,7 @@ const CryptoFarming = () => {
           <div className='w-[150px] h-[150px] fanbg border-[#616161] border-[4px] flex justify-center rounded-full items-center text-center relative'>
             <img src='/fan.webp' alt='dscfd' className='w-[130px] h-[130px] animate-spin' style={{ animationDuration: `${spinDuration}s` }}/>
             <div className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[34px] w-[34px] flex justify-center items-center'>
-              <img src='/dogs.webp' alt='sdfd' className='w-[14px]'/>
+              <img src='/rsclogo2.png' alt='sdfd' className='w-[14px]'/>
             </div>
           </div>
         </div>
@@ -472,7 +472,7 @@ const CryptoFarming = () => {
         <span className="font-medium text-[20px] text-[#ffffff] pt-2 pb-2 flex flex-col justify-center w-full text-center items-center space-x-1">
           
           <span className='flex items-center justify-center space-x-[2px] text-[18px]'>
-          <img src='/dogs.webp' alt='dscfd' className='w-[18px]'/>
+          <img src='/rsclogo2.png' alt='dscfd' className='w-[18px]'/>
 
           <span className="text-accent pr-[6px]">+{formatNumber(pointsEarned)} $RSC </span> CLAIMED
               </span>
@@ -517,7 +517,7 @@ const CryptoFarming = () => {
   <img src='/fan.webp' alt='dscfd' className='w-[30px] h-[30px]'/>
 )}
 <div className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[16px] w-[16px] flex justify-center items-center'>
-<img src='/dogs.webp' alt='sdfd' className='w-[8px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[8px]'/>
 </div>
 
 

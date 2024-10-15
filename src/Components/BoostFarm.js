@@ -107,7 +107,7 @@ const BoostFarm = () => {
           <span className='w-[20px] h-[20px] fanbg border-[#616161] border-[1px] flex justify-center rounded-full items-center text-center relative'>
 <img src='/fan.webp' alt='dscfd' className='w-[16px] h-[16px]'/>
 <span className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[12px] w-[14px] flex justify-center items-center'>
-<img src='/dogs.webp' alt='sdfd' className='w-[7px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[7px]'/>
 </span>
 </span>
           <span className="text-accent">+{selectedPower.capacity} PPH</span>
@@ -181,7 +181,7 @@ const BoostFarm = () => {
 <div className='w-[60px] h-[60px] fanbg border-[#616161] border-[2px] flex justify-center rounded-full items-center text-center relative'>
 <img src='/fan.webp' alt='dscfd' className='w-[45px] h-[45px]'/>
 <div className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[24px] w-[24px] flex justify-center items-center'>
-<img src='/dogs.webp' alt='sdfd' className='w-[10px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[10px]'/>
 </div>
 
 
@@ -199,7 +199,7 @@ className='w-full bg-cards py-4 px-4 rounded-[8px] flex justify-between items-ce
 <span className='w-[24px] h-[24px] fanbg border-[#616161] border-[1px] flex justify-center rounded-full items-center text-center relative'>
 <img src='/fan.webp' alt='dscfd' className='w-[18px] h-[18px]'/>
 <span className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[14px] w-[14px] flex justify-center items-center'>
-<img src='/dogs.webp' alt='sdfd' className='w-[7px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[7px]'/>
 </span>
 </span>
 <span className='text-[14px] font-medium'>
@@ -243,7 +243,7 @@ className='w-full bg-cards py-4 px-4 rounded-[8px] flex justify-between items-ce
 <div className='w-[90px] h-[90px] fanbg border-[#616161] border-[4px] flex justify-center rounded-full items-center text-center relative'>
 <img src='/fan.webp' alt='dscfd' className='w-[70px] h-[70px] animate-spin' style={{ animationDuration: '5s' }}/>
 <div className='absolute z-10 bg-[#3f2900] border-[1px] border-[#8b8b8b] rounded-full h-[34px] w-[34px] flex justify-center items-center'>
-<img src='/dogs.webp' alt='sdfd' className='w-[14px]'/>
+<img src='/rsclogo2.png' alt='sdfd' className='w-[14px]'/>
 </div>
 
 
@@ -260,7 +260,7 @@ className='w-full bg-cards py-4 px-4 rounded-[8px] flex justify-between items-ce
                        <span> Price:</span> <span className='pl-1'><img src='ton.png' alt='dfd' className='w-[12px] h-[12px]'/></span> <span>{selectedPower.price}</span>  <span> TON</span> 
                     </div>
                     <div className="w-[45%] bg-cards text-[12px] rounded-[6px] p-2 text-primary flex items-center justify-center space-x-1 font-semibold text-center">
-                       <span> Profit:</span> <span className='pl-1'><img src='dogs.webp' alt='dfd' className='w-[10px] h-[10px] mt-[2px]'/></span> <span className='text-green-500 '>{selectedPower.capacity} PPH</span> 
+                       <span> Profit:</span> <span className='pl-1'><img src='rsclogo2.png' alt='dfd' className='w-[10px] h-[10px] mt-[2px]'/></span> <span className='text-green-500 '>{selectedPower.capacity} PPH</span> 
                     </div>
                     </div>
 
