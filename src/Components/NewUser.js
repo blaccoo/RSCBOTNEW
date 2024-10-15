@@ -443,7 +443,7 @@ const NewUser = ({setChecker}) => {
     
           <p className='max-w-[28em] textlow text-white font-semibold'>
           
-             If you missed Dogs, dont miss {process.env.REACT_APP_PROJECT_NAME_SMALL}!
+             If you missed Btc, Notcoin, Dogs, dont miss {process.env.REACT_APP_PROJECT_NAME_SMALL}!
           </p>
           <button onClick={openFinish} className={`w-full py-3 rounded-[8px] font-semibold px-3 items-center justify-center text-center bg-[#fff] text-[#000]`}>
                 Continue
