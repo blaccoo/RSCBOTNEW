@@ -201,7 +201,7 @@ const Ref = () => {
       Invite a friend
     </h3>
     <p className="text-[13px]">
-      get 20% of your friend's earnings
+      get 5% of your friend's earnings
     </p>
   </div>
 </div>
