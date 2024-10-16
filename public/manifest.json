@@ -1,25 +1,35 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "RISING COIN",
+  "description": "Rising Coin is the utility token for various web3 use cases, with a play to earn game, trading all cryptocurrency in one place and trading digital products. Get on board mine token while having fun, its more fun playing and earning together, so invite friends and family.",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "start_url": "/",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/rsclogo2.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/rsclogo2.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "permissions": {
+    "wallets": [
+      {
+        "name": "TON Wallet",
+        "url": "https://ton.org/wallet",
+        "icon_url": "/icons/ton-wallet-icon.png",
+        "network": "mainnet"
+      }
+    ]
+  },
+  "action": {
+    "url": "https://my-dapp.com",
+    "method": "connect"
+  },
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50"
 }
