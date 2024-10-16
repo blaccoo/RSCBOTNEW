@@ -23,7 +23,7 @@ const Ref = () => {
 
   const copyToClipboard = () => {
     // eslint-disable-next-line
-    const reflink = `https://t.me/Risingcoin_appbot/Risingcoin?start=r${id}\n\$RSC tokens mining is live! Two is better than one!  Join my squad, and let\'s double the fun (and earnings 🤑)! $RSC Power Tap! 🚀`;
+    const reflink = `https://t.me/Risingcoin_appbot?start=r${id}\n\$RSC tokens mining is live! Two is better than one!  Join my squad, and let\'s double the fun (and earnings 🤑)! $RSC Power Tap! 🚀`;
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard
@@ -66,7 +66,7 @@ const Ref = () => {
     const shareData = {
       title: "Mine $RSC tokens now!",
       // eslint-disable-next-line
-      url: `https://t.me/Risingcoin_appbot/Risingcoin?start=r${id}\n\ `, // Replace with your link
+      url: `https://t.me/Risingcoin_appbot?start=r${id}\n\ `, // Replace with your link
       text: "$RSC tokens mining is live! Two is better than one!  Join my squad, and let's double the fun (and earnings 🤑)! $RSC Power Tap! 🚀",
     };
 
