@@ -112,9 +112,15 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+
+  <TonConnectUIProvider manifestUrl="https://rscbotnew.vercel.app/onconnect-manifest.jsont">
+           
+     
   <AuthContextProvider>
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
   </AuthContextProvider>
+
+  </TonConnectUIProvider>
 );
