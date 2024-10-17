@@ -367,7 +367,7 @@ export const UserProvider = ({ children }) => {
     const rewardsTwo = document.getElementById('reels2');
 
     if (location.pathname.startsWith('/airdrop') || location.pathname.startsWith('/checkin')) {
-      rewards.style.background = "#ffd798";
+      rewards.style.background = "#D8BFD8";
       rewards.style.color = "#000";
       rewards.style.height = "34px";
       rewards.style.marginTop = "4px";
