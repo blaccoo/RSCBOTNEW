@@ -195,7 +195,7 @@ const Ref = () => {
 
 
 <div className="flex items-center space-x-3">
-  <img src='/stars2.svg' alt="gf" className="w-[35px]"/>
+  <img src='/rsclogo2.png' alt="gf" className="w-[35px]"/>
   <div className="flex flex-col">
     <h3 className="font-medium">
       Invite a friend
