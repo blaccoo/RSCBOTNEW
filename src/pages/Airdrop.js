@@ -115,7 +115,7 @@ const Airdrop = () => {
 
 
 <div className='w-full flex items-center justify-center pt-8 pb-3'>
-    <img alt="daxy" src="/prem.svg" 
+    <img alt="daxy" src="/rsclogo2.png" 
             className="w-[100px]"
             />
 </div>
