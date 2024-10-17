@@ -402,7 +402,7 @@ const NewUser = ({setChecker}) => {
     <div className='w-full flex flex-col space-y-5 items-center'>
   
       <h2 className='font-bold text-[30px] text-center w-full'>
-        {premium ? 'You are the best' : 'Welcome to RISINGCOIN'}
+        {premium ? 'You are the best' : 'Welcome to RISING COIN'}
       </h2>
   
       <p className='text-[16px] font-semibold pb-14'>
@@ -443,7 +443,7 @@ const NewUser = ({setChecker}) => {
     
           <p className='max-w-[28em] textlow text-white font-semibold'>
           
-             If you missed Btc, Notcoin, Dogs, dont miss {process.env.REACT_APP_PROJECT_NAME_SMALL}!
+             If you missed Btc, Notcoin, Dogs, dont miss RISING COIN!
           </p>
           <button onClick={openFinish} className={`w-full py-3 rounded-[8px] font-semibold px-3 items-center justify-center text-center bg-[#fff] text-[#000]`}>
                 Continue

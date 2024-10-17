@@ -27,7 +27,7 @@ if ($text === '/start') {
     }
 
     $caption = "
-    👋 **Welcome to the GamaDog Adventure!** 🐾🎮
+    👋 **Welcome to the Rising Coin** 🐾🎮
 
     Get ready for a tail-wagging journey where every paw-tap leads to bigger rewards! Here’s what’s waiting for you:
 

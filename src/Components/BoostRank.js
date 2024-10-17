@@ -155,7 +155,7 @@ const BoostRank = () => {
     <button
         onClick={() => setOpenBoost(true)}
          className='bg-btn4 h-[45px] flex justify-center items-center space-x-2 font-medium w-full rounded-[8px]'>
-                <img src='/prem.svg' alt='fdfvds' className='w-[14px]'/>
+                <img src='/rsclogo2.png' alt='fdfvds' className='w-[14px]'/>
                 <span>
                     Boost your Rank
                     </span>
