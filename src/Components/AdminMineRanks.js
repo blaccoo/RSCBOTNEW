@@ -144,7 +144,7 @@ const getInitials = (username) => {
                   </h1>
                   <span className='flex items-center gap-1 flex-1 text-[12px]'>
     
-                    <img src='/stars2.svg' alt='dvf' className='w-[10px]'/>
+                    <img src='/rsclogo2.png' alt='dvf' className='w-[10px]'/>
                  
                     <span className='text-[12px] text-nowrap font-medium'>
                       {formatNumber(user.miningTotal)}

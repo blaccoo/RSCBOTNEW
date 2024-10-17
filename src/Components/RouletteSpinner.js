@@ -61,7 +61,7 @@ const RouletteSpinner = () => {
 
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 200
             </span>
@@ -69,7 +69,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 300
             </span>
@@ -77,7 +77,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 1000
             </span>
@@ -85,7 +85,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 2000
             </span>
@@ -93,7 +93,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 3000
             </span>
@@ -101,7 +101,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 4000
             </span>
@@ -109,7 +109,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 5000
             </span>
@@ -117,7 +117,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 6000
             </span>
@@ -125,7 +125,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 7000
             </span>
@@ -133,7 +133,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 8000
             </span>
@@ -141,7 +141,7 @@ const RouletteSpinner = () => {
         </span>
         <span className='flex items-center space-x-1 font-medium'>
 
-            <img src='/stars2.svg' alt='stars' className='w-[14px]'/>
+            <img src='/rsclogo2.png' alt='stars' className='w-[14px]'/>
             <span className=''>
                 9000
             </span>

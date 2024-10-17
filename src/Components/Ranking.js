@@ -77,7 +77,7 @@ const UserRanking = () => {
                         {leader.username}
                     </h2>
                     <div className='flex items-center space-x-1 text-[11px] font-semibold'>
-                        <img src='/stars2.svg' alt='dfc' className='w-[12px]'/>
+                        <img src='/rsclogo2.png' alt='dfc' className='w-[12px]'/>
                        <span> {formatNumber(leader.balance)}</span>
                     </div>
 
@@ -121,7 +121,7 @@ const UserRanking = () => {
                   </h1>
                   <span className='flex items-center gap-1 flex-1 text-[12px]'>
     
-                    <img src='/stars2.svg' alt='dvf' className='w-[10px]'/>
+                    <img src='/rsclogo2.png' alt='dvf' className='w-[10px]'/>
                  
                     <span className='text-[12px] text-nowrap font-medium'>
                       {formatNumber(balance)}
@@ -179,7 +179,7 @@ const UserRanking = () => {
                   </h1>
                   <span className='flex items-center gap-1 flex-1 text-[12px]'>
     
-                    <img src='/stars2.svg' alt='dvf' className='w-[10px]'/>
+                    <img src='/rsclogo2.png' alt='dvf' className='w-[10px]'/>
                  
                     <span className='text-[12px] text-nowrap font-medium'>
                       {formatNumber(user.balance)}
