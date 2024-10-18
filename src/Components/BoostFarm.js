@@ -248,7 +248,7 @@ className='w-full bg-cards py-4 px-4 rounded-[8px] flex justify-between items-ce
 
 
                     </div>
-                    <h3 className="font-semibold text-center text-[20px] pt-2">
+                    <h3 className="font-semibold text-center text-[20px] pt-2"> 
                     {selectedPower.title}
                     </h3>
                     <p className="pb-6 text-primary text-[14px] px-4 text-center">
