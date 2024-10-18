@@ -223,7 +223,7 @@ const DailyCheckIn = () => {
               Daily checkin rewards
             </h1>
             <p className='text-[14px] leading-[24px]'>
-             Accrue $RSC tokens for logging into the game daily and maintain consistency for reward streaks!
+             Secure $RSC tokens for logging into the game daily and maintain consistency for reward streaks!
             </p>
           </div>
   
