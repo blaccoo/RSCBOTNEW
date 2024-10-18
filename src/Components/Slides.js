@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const slides = [
   {
@@ -102,12 +102,12 @@ const CommunitySlider = () => {
               <p className="pb-2 text-[14px]">{slide.description}</p>
 
               {index === 0 ? (
-              <a
-              href={slide.link}
+              <Link
+              to={slide.link}
               className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
             >
               Claim
-            </a>
+            </Link>
               ) : (
                 <a
                 href={slide.link}
