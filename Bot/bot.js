@@ -2,8 +2,8 @@ const { Telegraf } = require("telegraf");
 const TOKEN = "7527123224:AAGziEn6Pt_zh-Db1121IIDhh-4Ztm1jdFY";
 const bot = new Telegraf(TOKEN);
 
-const web_link = process.env.WEB_LINK;
-const community_link = process.env.COMMUNITY_LINK; 
+const web_link = "https://rscbotnew.vercel.app/";
+const community_link = "https://t.me/risingcoin_rsc" 
 
 bot.start((ctx) => {
   const startPayload = ctx.startPayload;
