@@ -19,7 +19,7 @@ const CryptoFarming = () => {
   const TRIGGER_TIMETHREE = FARM_DURATION - 5;
   const TRIGGER_TIMEFOUR = FARM_DURATION - 7;
   const { id, balance, setBalance, miningPower, miningTotal, setMiningTotal} = useUser(); // Get the user ID from context
-  const POINTS_TO_EARN = miningPower * 5;
+  const POINTS_TO_EARN = miningPower * 3;
   const [isFarming, setIsFarming] = useState(false);
   const [pointsEarned, setPointsEarned] = useState(0);
   const [canClaim, setCanClaim] = useState(false);
