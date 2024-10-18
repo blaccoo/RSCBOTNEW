@@ -102,12 +102,12 @@ const CommunitySlider = () => {
               <p className="pb-2 text-[14px]">{slide.description}</p>
 
               {index === 0 ? (
-              <NavLink
-              to={slide.link}
+              <a
+              href={slide.link}
               className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
             >
               Claim
-            </NavLink>
+            </a>
               ) : (
                 <a
                 href={slide.link}
