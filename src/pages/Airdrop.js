@@ -75,12 +75,12 @@ const Airdrop = () => {
       };
 
       const qualifications = [
-        {
-            title: "Promote TON Blockchain",
-            totalBalance: tonTransactions,
-            icon: '/ton.png',
-            id: 1,
-        },
+        // {
+        //     title: "Promote TON Blockchain",
+        //     totalBalance: tonTransactions,
+        //     icon: '/ton.png',
+        //     id: 1,
+        // },
         {
             title: "Tasks Rewards",
             totalBalance: taskPoints,
