@@ -206,7 +206,7 @@ export const UserProvider = ({ children }) => {
           tonTransactions: 0,
           taskPoints: 0,
           checkinRewards: 0,
-          miningPower: 400,
+          miningPower: 200,
           premiumReward: 0,
           totalBalance: 0,
           miningTotal: 0,
