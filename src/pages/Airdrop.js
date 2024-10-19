@@ -76,7 +76,7 @@ const Airdrop = () => {
 
       const qualifications = [
         {
-            title: "Make TON Transactions",
+            title: "Promote TON Blockchain",
             totalBalance: tonTransactions,
             icon: '/ton.png',
             id: 1,

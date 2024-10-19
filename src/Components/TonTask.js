@@ -137,7 +137,7 @@ className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-
                 <div className="flex h-full flex-1 flex-col justify-center relative">
                   <div className='flex w-full flex-col justify-between h-full space-y-1'>
                     <h1 className="text-[15px] text-nowrap line-clamp-1 font-medium">
-                    Make a TON Transaction
+                    Promote TON Blockchain
                     </h1>
                     <span className='flex text-secondary items-center w-fit text-[15px]'>
                    
@@ -189,10 +189,10 @@ className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-
 
         
                     <h3 className="font-semibold text-center text-[20px] pt-2">
-                    Make a TON Transaction
+                    Promote TON Blockchain
                     </h3>
                     <p className="pb-6 text-primary text-[14px] px-4 text-center">
-                      Making a TON transaction is a criteria for airdrop qualification!
+                     To make Ton Great!
                     </p>
 
                     <div className='w-full flex justify-center items-center space-x-2 pb-3'>
