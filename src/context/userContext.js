@@ -172,11 +172,11 @@ export const UserProvider = ({ children }) => {
   }, [id]);
 
   const sendUserData = async () => {
-  
-
     const queryParams = new URLSearchParams(window.location.search);
-    const referrerId = urlParams.get('start')?.replace('r', ''); // Remove 'r' and get the id
+    let referrerId = queryParams.get("ref");
 
+    console.log(referrerId)
+    console.log("checking error")
     if (referrerId) {
       referrerId = referrerId.replace(/\D/g, "");
     }
