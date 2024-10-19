@@ -109,7 +109,7 @@ const ManualTasks = () => {
           <p className='font-medium text-center'>Let's go!!</p>
         </div>
         <h3 className="font-medium text-[20px] text-[#ffffff] pt-2 pb-2">
-          <span className={`text-accent`}>+{formatNumber(task.bonus)}</span> NGT CLAIMED
+          <span className={`text-accent`}>+{formatNumber(task.bonus)}</span> RSC CLAIMED
         </h3>
         <p className="pb-6 text-[15px] w-full text-center">
           Keep performing new tasks! something huge is coming! Perform more and earn more NGT now! 
