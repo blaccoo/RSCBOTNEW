@@ -159,7 +159,7 @@ useEffect(() => {
 
             
 
-          <TonConnectUIProvider manifestUrl="https://rscbotnew.vercel.app/tonconnect-manifest.json">
+          <TonConnectUIProvider manifestUrl="https://risingcoin.online/tonconnect-manifest.json">
         
           <UserProvider>
             <AnimatePresence mode="wait">
