@@ -8,77 +8,109 @@ $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
 // Extract necessary information from the update
-$chat_id = $update['message']['chat']['id'];
+$chat_id = $update['message']['chat']['id']; // ID of the current user
 $text = $update['message']['text'];
 $message_id = $update['message']['message_id'];
+$user_id = $update['message']['from']['id']; // Extract the user's ID for dynamic referral
+$user_name = $update['message']['from']['first_name']; // Get user's first name
 
-// Check if the received message is the "/start" command
-if ($text === '/start') {
+// Path to the image
+$photoPath = __DIR__ . '/home.png'; // Absolute path to the image
 
-    // Send a photo with caption
-    $photoPath = 'home.png'; // Local path to the image
-
-    // Debugging: Check if file exists and print path
-    if (file_exists($photoPath)) {
-        $realPath = realpath($photoPath);
-    } else {
-        error_log("File does not exist: " . $photoPath);
-        $realPath = '';
+// Check if the "/start" command has a referral
+if (isset($update['message']['text']) && strpos($text, '/start') === 0) {
+    // Extract the referrer ID from the referral link (if present)
+    $referrer_id = null;
+    if (strpos($text, '/start r') === 0) {
+        $referrer_id = substr($text, 8); // Extract the referrer's ID after '/start r'
     }
 
-    $caption = "
-    👋 **Welcome to the Rising Coin** 🐾🎮
+    // If there's a referrer, notify them
+    if ($referrer_id) {
+        // Notify the referrer that someone joined from their link
+        $notificationText = "$user_name joined using your referral link! 🎉";
 
-    Get ready for a tail-wagging journey where every paw-tap leads to bigger rewards! Here’s what’s waiting for you:
+        $ch_notify = curl_init();
+        curl_setopt($ch_notify, CURLOPT_URL, $apiUrl . "sendMessage");
+        curl_setopt($ch_notify, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch_notify, CURLOPT_POST, 1);
 
-    ✨ **Play GamaDog**: Tap the dog bone and watch your balance fetch amazing rewards!
-    🐕 **Mine for PUPS**: Collect GamaDog Tokens with every action your furry friend takes.
-    📋 **Complete Doggy Tasks**: Help your pup finish fun missions and earn even more treats!
-    🏆 **Climb the Leaderboard**: Compete with other pups and rise to the top to show you’re the best in the pack!
-    👥 **Invite Your Pack & Earn More!**  
-    Got friends, family, or fellow dog lovers? Invite them to join the fun and grow your earnings as the pack gets bigger! The more paws, the better!
+        $post_notify = [
+            'chat_id' => $referrer_id,
+            'text' => $notificationText
+        ];
 
-    🔗 **Connect with Us:**
-    - Developed by [@itking007](https://t.me/itking007)
-    - Join our [Dog Lovers Telegram Pack](https://t.me/companybrodigital) for the latest updates and tail-wagging fun!
+        curl_setopt($ch_notify, CURLOPT_POSTFIELDS, $post_notify);
+        curl_setopt($ch_notify, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch_notify, CURLOPT_SSL_VERIFYHOST, 0);
 
-    🐾 **Get Started Now** and take your dog on the ultimate GamaDog adventure!
-
-    👉 [Join Our Doggo Community](https://t.me/companybrodigital)
-    ";
-
-    // Send photo to Telegram
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $apiUrl . "sendPhoto");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-
-    $post_fields = [
-        'chat_id' => $chat_id,
-        'photo' => ($realPath ? new CURLFILE($realPath) : ''), // Use realpath to ensure correct path
-        'caption' => $caption,
-        'parse_mode' => 'Markdown', // Use Markdown for basic formatting
-        'reply_to_message_id' => $message_id,
-        'reply_markup' => json_encode([
-            'inline_keyboard' => [
-                [
-                    ['text' => 'Play GamaDog Now', 'web_app' => ['url' => 'https://app.companybro.com']],
-                    ['text' => 'Join Our Community', 'url' => 'https://t.me/companybrodigital']]
-            ]
-        ])
-    ];
-
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
-    $result = curl_exec($ch);
-
-    if ($result === false) {
-        error_log("CURL Error: " . curl_error($ch));
-    } else {
-        // Optionally, log the result for debugging
-        error_log("Result: " . $result);
+        curl_exec($ch_notify);
+        curl_close($ch_notify);
     }
 
-    curl_close($ch);
+    // Standard /start welcome message with image
+    if ($text === '/start' || $referrer_id) {
+        // Caption for the welcome message
+        $caption = "
+            Welcome to Rising Coin Miner 🔥
+
+            Our Telegram Miner is now live, and you're among the first to experience it in beta! 
+            Start MINING today and unlock incredible rewards as you grow your crypto stack faster.
+
+            How It Works:
+
+            🟢 Click 'Start Mining' to begin with 200 PPH for 3 hours.
+            🟢  Upgrade your power and duration as you earn more RSC.
+            🟢 Complete daily tasks and invite friends to boost your earnings!
+
+            
+        ";
+
+        // If there was a referrer, include their ID in the link
+         $referralLink = $referrer_id ? "https://risingcoin.online/?ref={$referrer_id}" : "https://risingcoin.online";
+
+
+        // Add referral link to caption if there was a referrer
+        $caption .= "\n\n🎁 **Join through this link and double the fun:** ";
+
+        // Check if file exists
+        if (file_exists($photoPath)) {
+            $realPath = realpath($photoPath);
+
+            // Send the image with the caption
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $apiUrl . "sendPhoto");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+
+            $post_fields = [
+                'chat_id' => $chat_id,
+                'photo' => new CURLFILE($realPath),
+                'caption' => $caption,
+                'parse_mode' => 'Markdown',
+                'reply_markup' => json_encode([
+                    'inline_keyboard' => [
+                        [
+                            ['text' => 'Play Rising Coin Now', 'web_app' => ['url' => $referralLink]],
+                            ['text' => 'Join Our Community', 'url' => 'https://t.me/risingcoin_rsc']]
+                    ]
+                ])
+            ];
+
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+
+            $result = curl_exec($ch);
+            if ($result === false) {
+                error_log("CURL Error: " . curl_error($ch));
+            }
+
+            curl_close($ch);
+        } else {
+            error_log("Image not found: " . $photoPath);
+        }
+    }
 }
 
 ?>

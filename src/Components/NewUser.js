@@ -16,7 +16,7 @@ const NewUser = ({setChecker}) => {
   const [dailyCheckin, setDailyCheckin] = useState(false);
   const [awardedPoint, setAwardedPoint] = useState(0);
   const premiumPoints = 5000;
-  const checkinPoint = 500;
+  const checkinPoint = 50;
   
 
   const awardPointsPrem = async () => {

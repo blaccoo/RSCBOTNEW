@@ -148,71 +148,36 @@ useEffect(() => {
    
    
 
-  return (
-<>
 
-<div className="w-full flex justify-center">
-         
+  return (
+    <>
+      <div className="w-full flex justify-center">
         <div className="w-full flex justify-center">
           <div className="flex flex-col space-y-3 w-full">
-
-
-            
-
           <TonConnectUIProvider manifestUrl="https://risingcoin.online/tonconnect-manifest.json">
-        
-          <UserProvider>
-            <AnimatePresence mode="wait">
-            {restrictAccess ? (
-  <>
-        <div className='w-full flex h-full justify-center px-5 items-center font-medium text-[20px]'>
-        <div className='w-full pt-24 text-center flex flex-col space-y-3 justify-center items-center'>
-          <p className='text-[28px] font-semibold'>
-            Mobile rocks for gaming 😎 Open on your mobile device to play now!
-          </p>
-          <img 
-            src='/rsclogo2.png'
-            alt="stars"
-            className='w-[200px]'
-          />
+              <UserProvider>
+                <AnimatePresence mode="wait">
+                  <Outlet />
+                  <div
+                    id="footermain"
+                    className={`${
+                      loading || hider ? "hidden" : "flex"
+                    } z-30 flex-col bg-[#000] fixed bottom-0 pt-3 pb-6 left-0 right-0 justify-center items-center px-3`}
+                  >
+                    <Footer />
+                    <div className="bg-[#000] z-20 h-[67px] w-full fixed bottom-0 left-0 right-0"></div>
+                  </div>
+                </AnimatePresence>
+              </UserProvider>
+            </TonConnectUIProvider>
+          </div>
         </div>
       </div>
-  </>
-) : (
-  <>
-
-            <Outlet />
-
-            <div id="footermain" className={`${loading || hider ? 'hidden' : 'flex'} z-30 flex-col bg-[#000] fixed bottom-0 pt-3 pb-6 left-0 right-0 justify-center items-center px-3`}>
-
-
-<Footer/>
-
-<div className="bg-[#000] z-20 h-[67px] w-full fixed bottom-0 left-0 right-0 ">
-
-</div>
-
-   
-
-</div>
-
-  </>
-)}
-
-
-            </AnimatePresence>
-            </UserProvider>
-            </TonConnectUIProvider>
-    
-          
-          
-
-
-        </div>
-           </div>
-           </div>
-           </>
+    </>
   );
 };
 
 export default Home;
+
+
+

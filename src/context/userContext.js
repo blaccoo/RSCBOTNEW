@@ -282,7 +282,7 @@ export const UserProvider = ({ children }) => {
     await updateDoc(userRef, { referrals: updatedReferrals });
 
     const totalEarnings = updatedReferrals.reduce((acc, curr) => acc + curr.balance, 0);
-    const refBonus = Math.floor(totalEarnings * 0.2);
+    const refBonus = Math.floor(totalEarnings * 0.05);
     const totalBalance = `${balance}`;
     try {
       await updateDoc(userRef, { refBonus, totalBalance, lastActive: new Date() });

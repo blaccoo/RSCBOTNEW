@@ -6,12 +6,15 @@ import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 
 
 const friendsRewards = [
-  { title: 'Invite 10 friends', referralsRequired: 10, bonusAward: 20000 },
-  { title: 'Invite 25 friends', referralsRequired: 25, bonusAward: 50000 },
+  { title: 'Invite 1 friends', referralsRequired: 1, bonusAward: 10000 },
+  { title: 'Invite 3 friends', referralsRequired: 3, bonusAward: 15000 },
+  { title: 'Invite 5 friends', referralsRequired: 5, bonusAward: 20000 },
+  { title: 'Invite 10 friends', referralsRequired: 10, bonusAward: 30000 },
+  { title: 'Invite 25 friends', referralsRequired: 25, bonusAward: 40000 },
   { title: 'Invite 50 friends', referralsRequired: 50, bonusAward: 100000 },
-//   { title: 'Invite 50 friends', referralsRequired: 50, bonusAward: 1000000 },
-//   { title: 'Invite 100 friends', referralsRequired: 100, bonusAward: 2000000 },
 ];
+
+
 
 const RefRewards = () => {
   const { referrals, balance, setBalance, id, setTaskPoints, claimedReferralRewards, setClaimedReferralRewards } = useUser();
