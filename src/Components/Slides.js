@@ -108,7 +108,7 @@ const CommunitySlider = () => {
 
   const handleTelegramShare = () => {
     const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
-    const imageUrl = 'https://example.com/path-to-your-image.jpg'; // Replace with your image URL
+    const imageUrl = 'https://rscbotnew.vercel.app/share-image.jpg'; // Replace with your image URL
     const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(imageUrl)}&text=${encodeURIComponent(shareText)}`;
     window.open(telegramUrl, '_blank');
   };
