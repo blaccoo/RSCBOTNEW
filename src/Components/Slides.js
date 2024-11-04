@@ -5,17 +5,22 @@ const slides = [
   {
     title: 'DAILY CHECKIN',
     description: 'Claim daily checkin rewards',
-    action: 'checkin', // Indicate this slide should trigger checkin action
+    action: 'checkin',
   },
   {
     title: '$RSC COMMUNITY',
     description: 'Join RISINGCOIN community channel',
-    link: 'https://t.me/risingcoin_rsc', 
+    link: 'https://t.me/risingcoin_rsc',
   },
   {
     title: 'SHARE ON WHATSAPP',
     description: 'Share with friends on WhatsApp to earn rewards',
     action: 'whatsappShare',
+  },
+  {
+    title: 'SHARE ON TELEGRAM',
+    description: 'Share with friends on Telegram to earn rewards',
+    action: 'telegramShare', // New action for Telegram share
   },
 ];
 
@@ -24,9 +29,9 @@ const CommunitySlider = () => {
   const slideInterval = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const { id, referrals, refBonus, loading } = useUser();
+  const { id } = useUser();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const userReferralCode = `https://t.me/Risingcoin_appbot?start=r${id}\n\ `;
+  const userReferralCode = `https://t.me/Risingcoin_appbot?start=r${id}\n`;
 
   const startSlideInterval = () => {
     slideInterval.current = setInterval(() => {
@@ -80,12 +85,12 @@ const CommunitySlider = () => {
   const handleWhatsAppShare = async () => {
     const referralImageUrl = `/share-image.jpg`;
     const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
-  
+
     try {
       const response = await fetch(referralImageUrl);
       const blob = await response.blob();
       const file = new File([blob], "referral.jpg", { type: "image/jpeg" });
-  
+
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: "Join Our Community!",
@@ -100,14 +105,20 @@ const CommunitySlider = () => {
       window.open(whatsappUrl, '_blank');
     }
   };
-  
+
+  const handleTelegramShare = () => {
+    const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
+    const imageUrl = 'https://example.com/path-to-your-image.jpg'; // Replace with your image URL
+    const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(imageUrl)}&text=${encodeURIComponent(shareText)}`;
+    window.open(telegramUrl, '_blank');
+  };
 
   const handleSlideAction = (slide) => {
     if (slide.action === 'whatsappShare') {
       handleWhatsAppShare();
-    }
-    if (slide.action === 'checkin') {
-      // Perform daily check-in action here
+    } else if (slide.action === 'telegramShare') {
+      handleTelegramShare(); // Add this line for Telegram share
+    } else if (slide.action === 'checkin') {
       console.log("Daily check-in claimed!");
     }
   };
@@ -147,6 +158,13 @@ const CommunitySlider = () => {
                 >
                   Share
                 </button>
+              ) : slide.action === 'telegramShare' ? ( // Button for Telegram share
+                <button
+                  onClick={() => handleSlideAction(slide)}
+                  className="bg-blue-500 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px] text-white"
+                >
+                  Share
+                </button>
               ) : slide.action === 'checkin' ? (
                 <button
                   onClick={() => handleSlideAction(slide)}
@@ -169,15 +187,13 @@ const CommunitySlider = () => {
         ))}
       </div>
 
-      <div className="flex justify-center mt-3 space-x-2">
+      <div className="flex justify-center py-4">
         {slides.map((_, index) => (
-          <span
+          <div
             key={index}
-            className={`w-2 h-2 rounded-full cursor-pointer ${
-              index === (currentSlide % slides.length) ? 'bg-white' : 'bg-gray-400'
-            }`}
+            className={`cursor-pointer w-2 h-2 mx-1 rounded-full ${currentSlide === index ? 'bg-white' : 'bg-gray-600'}`}
             onClick={() => handleDotClick(index)}
-          ></span>
+          ></div>
         ))}
       </div>
     </div>
