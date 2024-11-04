@@ -78,9 +78,6 @@ const CommunitySlider = () => {
     }
   };
 
-
-
-
   const handleWhatsAppShare = async () => {
     const referralImageUrl = `/share-image.jpg`; // Path to the image file
     const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
@@ -146,7 +143,7 @@ const CommunitySlider = () => {
               {slide.action === 'whatsappShare' ? (
                 <button
                   onClick={() => handleSlideAction(slide)}
-                  className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
+                  className="bg-green-500 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px] text-white"
                 >
                   Share
                 </button>
