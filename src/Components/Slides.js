@@ -78,22 +78,36 @@ const CommunitySlider = () => {
     }
   };
 
-  const handleWhatsAppShare = async () => {
-    const referralImageUrl = `/share-image.jpg`; // Path to image for sharing
-    const response = await fetch(referralImageUrl);
-    const blob = await response.blob();
-    const file = new File([blob], "referral.jpg", { type: "image/jpeg" });
 
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator.share({
-        title: "Join Our Community!",
-        text: `Join the RisingCoin community and earn rewards! ${userReferralCode}`,
-        files: [file],
-      });
-    } else {
-      alert("Sharing is not supported on this browser");
+
+
+  const handleWhatsAppShare = async () => {
+    const referralImageUrl = `/share-image.jpg`; // Path to the image file
+    const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
+  
+    try {
+      // Attempt to fetch the image and prepare for sharing
+      const response = await fetch(referralImageUrl);
+      const blob = await response.blob();
+      const file = new File([blob], "referral.jpg", { type: "image/jpeg" });
+  
+      // Check if sharing with images is supported
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: "Join Our Community!",
+          text: shareText,
+          files: [file],
+        });
+      } else {
+        throw new Error("Image sharing not supported");
+      }
+    } catch (error) {
+      // Fallback to WhatsApp URL scheme if image sharing is not supported
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+      window.open(whatsappUrl, '_blank');
     }
   };
+  
 
   const handleSlideAction = (slide) => {
     if (slide.action === 'whatsappShare') {
