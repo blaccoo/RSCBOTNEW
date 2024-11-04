@@ -143,19 +143,19 @@ const CommunitySlider = () => {
               {slide.action === 'whatsappShare' ? (
                 <button
                   onClick={() => handleSlideAction(slide)}
+                  style={{backgroundColor:"green"}}
                   className="bg-green-500 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px] text-white"
                 >
                   Share
                 </button>
               ) : slide.link ? (
-                <a
-                  href={slide.link}
+                <Link
+                  to={slide.link}
                   className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              
                 >
                   {slide.title === 'DAILY CHECKIN' ? 'Claim' : 'Join'}
-                </a>
+                </Link>
               ) : null}
             </div>
           </div>
