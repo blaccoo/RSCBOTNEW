@@ -112,7 +112,7 @@ const ManualTasks = () => {
           <span className={`text-accent`}>+{formatNumber(task.bonus)}</span> RSC CLAIMED
         </h3>
         <p className="pb-6 text-[15px] w-full text-center">
-          Keep performing new tasks! something huge is coming! Perform more and earn more NGT now! 
+          Keep performing new tasks! something huge is coming! Perform more and earn more RSC now! 
         </p>
       </div>
     );

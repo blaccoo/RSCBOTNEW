@@ -311,7 +311,7 @@ const Ref = () => {
                         </div>
 
                         <div className="text-[#d5df99] font-semibold text-[14px]">
-                          +{formatNumber((user.balance / 100) * 20)}
+                          +{formatNumber((user.balance / 100) * 5)}
                         </div>
                       </div>
                     ))}

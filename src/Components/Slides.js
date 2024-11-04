@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const slides = [
   {
@@ -11,6 +11,18 @@ const slides = [
     title: '$RSC COMMUNITY',
     description: 'Join RISINGCOIN community channel',
     link: 'https://t.me/risingcoin_rsc', 
+  },
+  {
+    title: 'SHARE ON WHATSAPP',
+    description: 'Share our community with your friends on WhatsApp!',
+    link: 'https://wa.me/?text=Join%20the%20RisingCoin%20community%20and%20earn%20rewards!',
+    platform: 'whatsapp'
+  },
+  {
+    title: 'SHARE ON TELEGRAM',
+    description: 'Share our community with your friends on Telegram!',
+    link: 'https://t.me/share/url?url=https://risingcoin.io&text=Join%20the%20RisingCoin%20community%20and%20earn%20rewards!',
+    platform: 'telegram'
   },
 ];
 
@@ -93,34 +105,38 @@ const CommunitySlider = () => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-
-
         {slides.concat(slides[0]).map((slide, index) => (
           <div key={index} className="min-w-[90%]"> {/* adjust 100% to 90% for partial view */}
             <div className="bg-[#17181A] mr-4 rounded-[12px] py-6 px-4 flex flex-col">
               <h2 className="font-medium">{slide.title}</h2>
               <p className="pb-2 text-[14px]">{slide.description}</p>
 
-              {index === 0 ? (
-              <Link
-              to={slide.link}
-              className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
-            >
-              Claim
-            </Link>
+              {slide.platform ? (
+                <a
+                  href={slide.link}
+                  className={`bg-${slide.platform === 'whatsapp' ? 'green-500' : 'blue-500'} py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {slide.platform === 'whatsapp' ? 'Share on WhatsApp' : 'Share on Telegram'}
+                </a>
+              ) : index === 0 ? (
+                <Link
+                  to={slide.link}
+                  className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
+                >
+                  Claim
+                </Link>
               ) : (
                 <a
-                href={slide.link}
-                className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Join
-              </a>
+                  href={slide.link}
+                  className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join
+                </a>
               )}
-
-
-
             </div>
           </div>
         ))}

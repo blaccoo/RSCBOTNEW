@@ -1,5 +1,6 @@
 <?php
 
+
 $apiKey = '7527123224:AAGziEn6Pt_zh-Db1121IIDhh-4Ztm1jdFY'; // Your Telegram bot API key
 $apiUrl = "https://api.telegram.org/bot$apiKey/";
 
