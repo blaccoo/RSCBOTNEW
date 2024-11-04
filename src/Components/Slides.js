@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useUser } from "../context/userContext";
 
 const slides = [
   {
@@ -14,15 +15,8 @@ const slides = [
   },
   {
     title: 'SHARE ON WHATSAPP',
-    description: 'Share our community with your friends on WhatsApp!',
-    link: 'https://wa.me/?text=Join%20the%20RisingCoin%20community%20and%20earn%20rewards!',
-    platform: 'whatsapp'
-  },
-  {
-    title: 'SHARE ON TELEGRAM',
-    description: 'Share our community with your friends on Telegram!',
-    link: 'https://t.me/share/url?url=https://risingcoin.io&text=Join%20the%20RisingCoin%20community%20and%20earn%20rewards!',
-    platform: 'telegram'
+    description: 'Share with friends on WhatsApp to earn rewards',
+    action: 'whatsappShare', // Indicate this slide should trigger WhatsApp sharing
   },
 ];
 
@@ -31,7 +25,9 @@ const CommunitySlider = () => {
   const slideInterval = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const { id, referrals, refBonus, loading } = useUser();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const userReferralCode = `https://t.me/Risingcoin_appbot?start=r${id}\n\ `; // Replace with actual referral code logic
 
   const startSlideInterval = () => {
     slideInterval.current = setInterval(() => {
@@ -46,7 +42,6 @@ const CommunitySlider = () => {
   useEffect(() => {
     startSlideInterval();
     return () => stopSlideInterval();
-    // eslint-disable-next-line
   }, []);
 
   const handleNextSlide = () => {
@@ -83,6 +78,29 @@ const CommunitySlider = () => {
     }
   };
 
+  const handleWhatsAppShare = async () => {
+    const referralImageUrl = `/share-image.jpg`; // Path to image for sharing
+    const response = await fetch(referralImageUrl);
+    const blob = await response.blob();
+    const file = new File([blob], "referral.jpg", { type: "image/jpeg" });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({
+        title: "Join Our Community!",
+        text: `Join the RisingCoin community and earn rewards! ${userReferralCode}`,
+        files: [file],
+      });
+    } else {
+      alert("Sharing is not supported on this browser");
+    }
+  };
+
+  const handleSlideAction = (slide) => {
+    if (slide.action === 'whatsappShare') {
+      handleWhatsAppShare();
+    }
+  };
+
   useEffect(() => {
     if (isTransitioning) {
       const transitionEnd = setTimeout(() => {
@@ -92,7 +110,7 @@ const CommunitySlider = () => {
         } else if (currentSlide < 0) {
           setCurrentSlide(slides.length - 1);
         }
-      }, 500); // duration of the transition
+      }, 500);
       return () => clearTimeout(transitionEnd);
     }
   }, [currentSlide, isTransitioning]);
@@ -101,42 +119,33 @@ const CommunitySlider = () => {
     <div className="relative w-full max-w-xl mx-auto overflow-hidden">
       <div
         className={`flex ${isTransitioning ? 'transition-transform duration-500' : ''}`}
-        style={{ transform: `translateX(-${(currentSlide % slides.length) * 90}%)` }} // adjust 100% to 90% for partial view
+        style={{ transform: `translateX(-${(currentSlide % slides.length) * 90}%)` }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         {slides.concat(slides[0]).map((slide, index) => (
-          <div key={index} className="min-w-[90%]"> {/* adjust 100% to 90% for partial view */}
+          <div key={index} className="min-w-[90%]">
             <div className="bg-[#17181A] mr-4 rounded-[12px] py-6 px-4 flex flex-col">
               <h2 className="font-medium">{slide.title}</h2>
               <p className="pb-2 text-[14px]">{slide.description}</p>
 
-              {slide.platform ? (
-                <a
-                  href={slide.link}
-                  className={`bg-${slide.platform === 'whatsapp' ? 'green-500' : 'blue-500'} py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {slide.platform === 'whatsapp' ? 'Share on WhatsApp' : 'Share on Telegram'}
-                </a>
-              ) : index === 0 ? (
-                <Link
-                  to={slide.link}
+              {slide.action === 'whatsappShare' ? (
+                <button
+                  onClick={() => handleSlideAction(slide)}
                   className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
                 >
-                  Claim
-                </Link>
-              ) : (
+                  Share
+                </button>
+              ) : slide.link ? (
                 <a
                   href={slide.link}
                   className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Join
+                  {slide.title === 'DAILY CHECKIN' ? 'Claim' : 'Join'}
                 </a>
-              )}
+              ) : null}
             </div>
           </div>
         ))}
