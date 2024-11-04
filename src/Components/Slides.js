@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { useUser } from "../context/userContext";
 
 const slides = [
   {
     title: 'DAILY CHECKIN',
     description: 'Claim daily checkin rewards',
-    link: '/checkin',
+    action: 'checkin', // Indicate this slide should trigger checkin action
   },
   {
     title: '$RSC COMMUNITY',
@@ -16,7 +15,7 @@ const slides = [
   {
     title: 'SHARE ON WHATSAPP',
     description: 'Share with friends on WhatsApp to earn rewards',
-    action: 'whatsappShare', // Indicate this slide should trigger WhatsApp sharing
+    action: 'whatsappShare',
   },
 ];
 
@@ -27,7 +26,7 @@ const CommunitySlider = () => {
   const touchEndX = useRef(0);
   const { id, referrals, refBonus, loading } = useUser();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const userReferralCode = `https://t.me/Risingcoin_appbot?start=r${id}\n\ `; // Replace with actual referral code logic
+  const userReferralCode = `https://t.me/Risingcoin_appbot?start=r${id}\n\ `;
 
   const startSlideInterval = () => {
     slideInterval.current = setInterval(() => {
@@ -79,16 +78,14 @@ const CommunitySlider = () => {
   };
 
   const handleWhatsAppShare = async () => {
-    const referralImageUrl = `/share-image.jpg`; // Path to the image file
+    const referralImageUrl = `/share-image.jpg`;
     const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
   
     try {
-      // Attempt to fetch the image and prepare for sharing
       const response = await fetch(referralImageUrl);
       const blob = await response.blob();
       const file = new File([blob], "referral.jpg", { type: "image/jpeg" });
   
-      // Check if sharing with images is supported
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: "Join Our Community!",
@@ -99,7 +96,6 @@ const CommunitySlider = () => {
         throw new Error("Image sharing not supported");
       }
     } catch (error) {
-      // Fallback to WhatsApp URL scheme if image sharing is not supported
       const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
       window.open(whatsappUrl, '_blank');
     }
@@ -109,6 +105,10 @@ const CommunitySlider = () => {
   const handleSlideAction = (slide) => {
     if (slide.action === 'whatsappShare') {
       handleWhatsAppShare();
+    }
+    if (slide.action === 'checkin') {
+      // Perform daily check-in action here
+      console.log("Daily check-in claimed!");
     }
   };
 
@@ -143,19 +143,26 @@ const CommunitySlider = () => {
               {slide.action === 'whatsappShare' ? (
                 <button
                   onClick={() => handleSlideAction(slide)}
-                  style={{backgroundColor:"green"}}
                   className="bg-green-500 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px] text-white"
                 >
                   Share
                 </button>
-              ) : slide.link ? (
-                <Link
-                  to={slide.link}
-                  className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
-              
+              ) : slide.action === 'checkin' ? (
+                <button
+                  onClick={() => handleSlideAction(slide)}
+                  className="bg-blue-500 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px] text-white"
                 >
-                  {slide.title === 'DAILY CHECKIN' ? 'Claim' : 'Join'}
-                </Link>
+                  Claim
+                </button>
+              ) : slide.link ? (
+                <a
+                  href={slide.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
+                >
+                  Join
+                </a>
               ) : null}
             </div>
           </div>
