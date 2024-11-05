@@ -85,6 +85,10 @@ const CommunitySlider = () => {
     }
   }, [currentSlide, isTransitioning]);
 
+  const handleJoinClick = (link) => {
+    window.open(link, '_blank');
+  };
+
   return (
     <div className="relative w-full max-w-xl mx-auto overflow-hidden">
       <div
@@ -107,14 +111,12 @@ const CommunitySlider = () => {
                   Claim
                 </button>
               ) : slide.link ? (
-                <a
-                  href={slide.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handleJoinClick(slide.link)}
                   className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
                 >
                   Join
-                </a>
+                </button>
               ) : null}
             </div>
           </div>
