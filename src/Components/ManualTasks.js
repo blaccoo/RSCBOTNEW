@@ -39,7 +39,7 @@ const ManualTasks = () => {
     fetchLastShareDate();
   }, [userId]);
 
-  const performTask = (taskId) => {
+  const performTask = async (taskId) => {
     const task = manualTasks.find(task => task.id === taskId);
     if (task) {
       if (task.title === "Share on WhatsApp Status") {
@@ -54,6 +54,13 @@ const ManualTasks = () => {
       setTimeout(() => {
         setShowVerifyButtons(prevState => ({ ...prevState, [taskId]: true }));
       }, 2000); // Enable the verify button after 2 seconds
+
+    // Update last share date
+    const today = new Date().toISOString().split('T')[0]; // Get current date
+    await updateDoc(doc(db, 'telegramUsers', userId), {
+      lastShareDate: today // Save the current date
+    });
+    setLastShareDate(today);
     }
   };
   
@@ -87,12 +94,7 @@ Join now
       window.open(whatsappUrl, '_blank');
     }
 
-    // Update last share date
-    const today = new Date().toISOString().split('T')[0]; // Get current date
-    await updateDoc(doc(db, 'telegramUsers', userId), {
-      lastShareDate: today // Save the current date
-    });
-    setLastShareDate(today);
+
   };
 
 
