@@ -268,11 +268,11 @@ const DailyCheckIn = () => {
                 <h3 className="font-medium text-[24px] text-[#ffffff] pb-2">
                   {streak === true ? (
 <>
-<span className='text-accent'>+{formatNumberCliam(bonusPoints[14])}</span> MAX
+<span className='text-accent'>+{formatNumberCliam(bonusPoints[14])}</span> RSC
 </>
                   ) : (
 <>
-<span className='text-accent'>+{formatNumberCliam(bonusPoints[checkInDays.length - 1])}</span> MAX
+<span className='text-accent'>+{formatNumberCliam(bonusPoints[checkInDays.length - 1])}</span> RSC
 </>
          
          )}
