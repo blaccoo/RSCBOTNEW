@@ -236,7 +236,7 @@ Join now
         const isTaskCompleted2 = submitted[task.id] || (isWhatsAppTask && isTaskCompletedToday);
 
         return (
-          isTaskCompleted2 && <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
+          !isTaskCompleted2 && <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
               
           <div className='w-fit pr-2'>
             <div className='flex items-center justify-center bg-[#1f2023] h-[45px] w-[45px] rounded-full p-1'>
