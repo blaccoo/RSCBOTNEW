@@ -21,8 +21,23 @@ const ManualTasks = () => {
   const [claimedBonus, setClaimedBonus] = useState(0); // New state to store the claimed bonus amount
   const [congrats, setCongrats] = useState(false);
   const userReferralCode = `https://t.me/Risingcoin_appbot?start=r${userId}\n\ `;
+  const [lastShareDate, setLastShareDate] = useState(null);
   
+
   
+  useEffect(() => {
+    // Fetch the last share date from the database when the component mounts
+    const fetchLastShareDate = async () => {
+      const userDocRef = doc(db, 'telegramUsers', userId);
+      const userDoc = await userDocRef.get();
+      if (userDoc.exists()) {
+        const data = userDoc.data();
+        setLastShareDate(data.lastShareDate || null);
+      }
+    };
+
+    fetchLastShareDate();
+  }, [userId]);
 
   const performTask = (taskId) => {
     const task = manualTasks.find(task => task.id === taskId);
@@ -46,7 +61,7 @@ const ManualTasks = () => {
 
   const handleWhatsAppShare = async () => {
     const referralImageUrl = `/share-image.jpg`;
-    const shareText = `100,000 + Memebers already joined. 
+    const shareText = `100,000+ Members already joined. 
 Join me in Rising Coin Now and earn exclusive free airdrop reward.
 
 Ending Soon.
@@ -65,13 +80,21 @@ Join now
           files: [file],
         });
       } else {
-      throw new Error("Image sharing not supported");
+        throw new Error("Image sharing not supported");
       }
     } catch (error) {
       const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
       window.open(whatsappUrl, '_blank');
     }
+
+    // Update last share date
+    const today = new Date().toISOString().split('T')[0]; // Get current date
+    await updateDoc(doc(db, 'telegramUsers', userId), {
+      lastShareDate: today // Save the current date
+    });
+    setLastShareDate(today);
   };
+
 
   const startCountdown = (taskId) => {
     setCountdowns(prevState => ({ ...prevState, [taskId]: 5 }));
@@ -208,8 +231,12 @@ Join now
     const isTaskCompleted = userTask ? userTask.completed : false;
     const isTaskSaved = !!userTask;
 
+    const isWhatsAppTask = task.title === "Share on WhatsApp Status";
+        const isTaskCompletedToday = lastShareDate === new Date().toISOString().split('T')[0];
+        const isTaskCompleted2 = submitted[task.id] || (isWhatsAppTask && isTaskCompletedToday);
+
         return (
-          <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
+          isTaskCompleted2 && <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
               
           <div className='w-fit pr-2'>
             <div className='flex items-center justify-center bg-[#1f2023] h-[45px] w-[45px] rounded-full p-1'>
