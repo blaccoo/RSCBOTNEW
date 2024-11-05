@@ -46,7 +46,12 @@ const ManualTasks = () => {
 
   const handleWhatsAppShare = async () => {
     const referralImageUrl = `/share-image.jpg`;
-    const shareText = `Join the RisingCoin community and earn rewards! ${userReferralCode}`;
+    const shareText = `100,000 + Memebers already joined. 
+Join me in Rising Coin Now and earn exclusive free airdrop reward.
+
+Ending Soon.
+Join now
+👇👇👇👇 ${userReferralCode}`;
   
     try {
       const response = await fetch(referralImageUrl);
