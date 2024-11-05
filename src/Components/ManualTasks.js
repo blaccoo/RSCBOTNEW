@@ -60,8 +60,7 @@ const ManualTasks = () => {
           files: [file],
         });
       } else {
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-        window.open(whatsappUrl, '_blank');
+      throw new Error("Image sharing not supported");
       }
     } catch (error) {
       const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
