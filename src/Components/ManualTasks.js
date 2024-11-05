@@ -233,7 +233,7 @@ Join now
 
     const isWhatsAppTask = task.title === "Share on WhatsApp Status";
         const isTaskCompletedToday = lastShareDate === new Date().toISOString().split('T')[0];
-        const isTaskCompleted2 = submitted[task.id] || (isWhatsAppTask && isTaskCompletedToday);
+        const isTaskCompleted2 =  (isWhatsAppTask && isTaskCompletedToday);
 
         return (
           !isTaskCompleted2 && <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
