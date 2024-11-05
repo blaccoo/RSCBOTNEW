@@ -39,7 +39,7 @@ const ManualTasks = () => {
     fetchLastShareDate();
   }, [userId]);
 
-  const performTask = async (taskId) => {
+  const performTask = (taskId) => {
     const task = manualTasks.find(task => task.id === taskId);
     if (task) {
       if (task.title === "Share on WhatsApp Status") {
@@ -55,12 +55,7 @@ const ManualTasks = () => {
         setShowVerifyButtons(prevState => ({ ...prevState, [taskId]: true }));
       }, 2000); // Enable the verify button after 2 seconds
 
-    // Update last share date
-    const today = new Date().toISOString().split('T')[0]; // Get current date
-    await updateDoc(doc(db, 'telegramUsers', userId), {
-      lastShareDate: today // Save the current date
-    });
-    setLastShareDate(today);
+      
     }
   };
   
@@ -69,12 +64,12 @@ const ManualTasks = () => {
   const handleWhatsAppShare = async () => {
     const referralImageUrl = `/share-image.jpg`;
     const shareText = `100,000+ Members already joined. 
-Join me in Rising Coin Now and earn exclusive free airdrop reward.
-
-Ending Soon.
-Join now
-👇👇👇👇 ${userReferralCode}`;
+  Join me in Rising Coin Now and earn exclusive free airdrop reward.
   
+  Ending Soon.
+  Join now
+  👇👇👇👇 ${userReferralCode}`;
+    
     try {
       const response = await fetch(referralImageUrl);
       const blob = await response.blob();
@@ -93,9 +88,10 @@ Join now
       const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
       window.open(whatsappUrl, '_blank');
     }
-
-
+  
+  
   };
+  
 
 
   const startCountdown = (taskId) => {
@@ -160,6 +156,14 @@ Join now
         balance: increment(task.bonus),
         taskPoints: increment(task.bonus),
       });
+      if (task.title === "Share on WhatsApp Status") {
+        // Update the lastShareDate to the current date in Firestore
+        await updateDoc(userDocRef, {
+          lastShareDate: new Date().toISOString().split('T')[0]
+        });
+        setLastShareDate(new Date().toISOString().split('T')[0]);
+      }
+
       setBalance(prevBalance => prevBalance + task.bonus);
       setTaskPoints(prevTaskPoints => prevTaskPoints + task.bonus);
       console.log(`Task ${taskId} marked as completed`);
