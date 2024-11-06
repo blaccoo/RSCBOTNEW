@@ -142,7 +142,7 @@ const ManualTasks = () => {
     const isTaskCompleted2 = isWhatsAppTask && isTaskCompletedToday;
 
     // Only include tasks that are not completed
-    return !isTaskCompleted && !isTaskCompleted2;
+    return  !isTaskCompleted2;
   })
   .map(task => {
     const userTask = userManualTasks.find(t => t.taskId === task.id);
