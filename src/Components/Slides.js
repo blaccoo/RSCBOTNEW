@@ -142,4 +142,3 @@ const CommunitySlider = () => {
 };
 
 export default CommunitySlider;
-git
