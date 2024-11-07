@@ -19,7 +19,6 @@ const CommunitySlider = () => {
   const slideInterval = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const { id, referrals, refBonus, loading } = useUser();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const startSlideInterval = () => {
@@ -35,6 +34,7 @@ const CommunitySlider = () => {
   useEffect(() => {
     startSlideInterval();
     return () => stopSlideInterval();
+    // eslint-disable-next-line
   }, []);
 
   const handleNextSlide = () => {
@@ -80,44 +80,47 @@ const CommunitySlider = () => {
         } else if (currentSlide < 0) {
           setCurrentSlide(slides.length - 1);
         }
-      }, 500);
+      }, 500); // duration of the transition
       return () => clearTimeout(transitionEnd);
     }
   }, [currentSlide, isTransitioning]);
-
-  const handleJoinClick = (link) => {
-    window.open(link, '_blank');
-  };
 
   return (
     <div className="relative w-full max-w-xl mx-auto overflow-hidden">
       <div
         className={`flex ${isTransitioning ? 'transition-transform duration-500' : ''}`}
-        style={{ transform: `translateX(-${(currentSlide % slides.length) * 90}%)` }}
+        style={{ transform: `translateX(-${(currentSlide % slides.length) * 90}%)` }} // adjust 100% to 90% for partial view
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
+
+
         {slides.concat(slides[0]).map((slide, index) => (
-          <div key={index} className="min-w-[90%]">
+          <div key={index} className="min-w-[90%]"> {/* adjust 100% to 90% for partial view */}
             <div className="bg-[#17181A] mr-4 rounded-[12px] py-6 px-4 flex flex-col">
               <h2 className="font-medium">{slide.title}</h2>
               <p className="pb-2 text-[14px]">{slide.description}</p>
 
-              {slide.action === 'checkin' ? (
-                <button
-                  onClick={() => alert('Daily check-in claimed!')} // Replace with actual check-in logic
-                  className="bg-green-500 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px] text-white"
-                >
-                  Claim
-                </button>
-              ) : slide.link ? (
-                <button
-                  onClick={() => handleJoinClick(slide.link)}
-                  className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
-                >
-                  Join
-                </button>
-              ) : null}
+              {index === 0 ? (
+              <Link
+              to={slide.link}
+              className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
+            >
+              Claim
+            </Link>
+              ) : (
+                <a
+                href={slide.link}
+                className="bg-btn4 py-1 px-3 text-[16px] font-semibold w-fit rounded-[30px]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join
+              </a>
+              )}
+
+
+
             </div>
           </div>
         ))}
