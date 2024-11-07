@@ -2,7 +2,7 @@
   "name": "risingcoin",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://risingcoin.online/", 
+  "homepage": "https://risingcoin.online/",
   "dependencies": {
     "@firebase/firestore": "^4.6.3",
     "@testing-library/jest-dom": "^5.16.4",
@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
     "env": "^0.0.2",
     "express": "^4.19.2",

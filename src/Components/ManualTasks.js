@@ -5,6 +5,7 @@ import { useUser } from "../context/userContext";
 import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { CiNoWaitingSign } from "react-icons/ci";
+import { differenceInDays } from 'date-fns'; // Import date-fns for date calculation
 
 
 
@@ -25,19 +26,60 @@ const ManualTasks = () => {
   
 
   
+
+
   useEffect(() => {
-    // Fetch the last share date from the database when the component mounts
     const fetchLastShareDate = async () => {
       const userDocRef = doc(db, 'telegramUsers', userId);
       const userDoc = await userDocRef.get();
       if (userDoc.exists()) {
         const data = userDoc.data();
         setLastShareDate(data.lastShareDate || null);
+  
+        // Check if the last share date is more than a day ago
+        const today = new Date();
+        if (data.lastShareDate) {
+          const lastShareDateObj = new Date(data.lastShareDate);
+          const daysDifference = differenceInDays(today, lastShareDateObj);
+  
+          if (daysDifference > 1) {
+            await getWhatsAppTask(); // Call the function if more than a day has passed
+          }
+        } else {
+       
+        }
       }
     };
-
+  
     fetchLastShareDate();
   }, [userId]);
+  
+
+  const getWhatsAppTask = async () => {
+    const task = manualTasks.find(task => task.title === "Share on WhatsApp Status");
+    if (task && !task.completed) {
+      // Update task locally
+      task.completed = false;
+
+      // Update the task in Firebase
+      await updateDoc(doc(db, 'telegramUsers', userId), {
+        userManualTasks: arrayUnion({
+          taskId: task.id,
+          completed: false,
+          timestamp: new Date()
+        })
+      });
+
+      // Update local user manual tasks to reflect the change
+      setUserManualTasks(prevTasks => [
+        ...prevTasks.filter(t => t.taskId !== task.id),
+        { taskId: task.id, completed: false }
+      ]);
+    }
+    return task;
+  };
+
+
 
   const performTask = (taskId) => {
     const task = manualTasks.find(task => task.id === taskId);
@@ -236,7 +278,7 @@ Join now
         const isTaskCompleted2 = submitted[task.id] || (isWhatsAppTask && isTaskCompletedToday);
 
         return (
-          !isTaskCompleted &&  <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
+          isTaskCompleted && <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
               
           <div className='w-fit pr-2'>
             <div className='flex items-center justify-center bg-[#1f2023] h-[45px] w-[45px] rounded-full p-1'>
