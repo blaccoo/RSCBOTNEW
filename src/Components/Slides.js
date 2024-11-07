@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useUser } from "../context/userContext";
+import { Link, NavLink } from 'react-router-dom';
 
 const slides = [
   {
@@ -133,7 +134,7 @@ const CommunitySlider = () => {
             className={`w-2 h-2 rounded-full cursor-pointer ${
               index === (currentSlide % slides.length) ? 'bg-white' : 'bg-gray-400'
             }`}
-            onClick={() => handleDotClick(index)}
+            onClick={() => handleDotClick(index)} 
           ></span>
         ))}
       </div>
