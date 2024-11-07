@@ -6,7 +6,7 @@ const slides = [
   {
     title: 'DAILY CHECKIN',
     description: 'Claim daily checkin rewards',
-    action: 'checkin',
+    link: '/checkin',
   },
   {
     title: '$RSC COMMUNITY',
