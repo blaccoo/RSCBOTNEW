@@ -108,7 +108,7 @@ const ManualTasks = () => {
   
       setUserManualTasks(prevTasks => [
         ...prevTasks.filter(t => t.taskId !== updatedTask.taskId),
-        { taskId: task.id, completed: false }
+        { taskId: updatedTask.taskId, completed: false }
       ]);
       
 
