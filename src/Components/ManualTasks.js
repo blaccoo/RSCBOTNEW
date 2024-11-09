@@ -42,7 +42,7 @@ const ManualTasks = () => {
           const lastShareDateObj = parseISO(data.lastShareDate);
           const daysDifference = differenceInDays(today, lastShareDateObj);
   
-          if (daysDifference > 1) {
+          if (daysDifference == 1) {
             await getWhatsAppTask(); // Call the function if more than a day has passed
           }
         } else {
