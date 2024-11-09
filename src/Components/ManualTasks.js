@@ -135,11 +135,7 @@ Join now
     }
 
     // Update last share date
-    const today = new Date().toISOString().split('T')[0]; // Get current date
-    await updateDoc(doc(db, 'telegramUsers', userId), {
-      lastShareDate: today // Save the current date
-    });
-    setLastShareDate(today);
+
   };
 
 
@@ -174,6 +170,11 @@ Join now
               await updateDoc(userDocRef, {
                 manualTasks: arrayUnion({ taskId: taskId, completed: false })
               });
+              const today = new Date().toISOString().split('T')[0]; // Get current date
+              await updateDoc(doc(db, 'telegramUsers', userId), {
+                lastShareDate: today // Save the current date
+              });
+              setLastShareDate(today);
               console.log(`Task ${taskId} added to user's manualTasks collection`);
             } catch (error) {
               console.error("Error adding task to user's document: ", error);
