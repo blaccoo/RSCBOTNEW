@@ -30,7 +30,7 @@ const ManualTasks = () => {
   useEffect(() => {
     const fetchLastShareDate = async () => {
       try {
-        const userDocRef = doc(db, 'telegramUsers', "7371301109");
+        const userDocRef = doc(db, 'telegramUsers', userId);
         const userDoc = await getDoc(userDocRef); // Use getDoc to retrieve the document
 
         if (userDoc.exists()) {
@@ -44,7 +44,7 @@ const ManualTasks = () => {
             const daysDifference = differenceInDays(today, lastShareDateObj);
             console.log(daysDifference)
             // Call getWhatsAppTask if more than a day has passed
-            if (daysDifference > 0) {
+            if (daysDifference == 0) {
               await getWhatsAppTask();
             }
           } else {
