@@ -44,7 +44,7 @@ const ManualTasks = () => {
             const daysDifference = differenceInDays(today, lastShareDateObj);
             console.log(daysDifference)
             // Call getWhatsAppTask if more than a day has passed
-            if (daysDifference == 0) {
+            if (daysDifference > 0) {
               await getWhatsAppTask();
             }
           } else {
