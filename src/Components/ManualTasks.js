@@ -64,7 +64,7 @@ const ManualTasks = () => {
   const saveTaskToUser2 = async () => {
     try {
       const userDocRef = doc(db, 'telegramUsers', userId);
-  
+      
       // Fetch the current user's data
       const userDoc = await getDoc(userDocRef);
       if (!userDoc.exists()) {
@@ -78,31 +78,42 @@ const ManualTasks = () => {
   
       // Find the task that needs to be updated
       const taskIndex = currentTasks.findIndex(task => task.taskId === 9); // Assuming taskId is unique
-  
+      
       if (taskIndex === -1) {
         console.log('Task not found');
         return;
       }
   
       // Update the existing task (modify the task properties as needed)
-      currentTasks[taskIndex] = { ...currentTasks[taskIndex], completed: false }; // example update
+      const updatedTask = { ...currentTasks[taskIndex], completed: false }; // example update
+  
+      // Replace the task in the array with the updated one
+      currentTasks[taskIndex] = updatedTask;
   
       // Update the document with the modified tasks array
       await updateDoc(userDocRef, {
         manualTasks: currentTasks, // Replace the array with the updated one
       });
   
+      // Update the `lastShareDate`
       const today = new Date().toISOString().split('T')[0]; // Get current date
       await updateDoc(userDocRef, {
         lastShareDate: today // Save the current date
       });
   
+      // Update local state and local storage for the task
       setLastShareDate(today);
       console.log('Task updated in user\'s manualTasks collection');
   
-      // Sync the updated tasks with local storage
-      const updatedTasks = currentTasks.map(task => ({ taskId: task.taskId, completed: task.completed }));
-      localStorage.setItem('manualTasks', JSON.stringify(updatedTasks)); // Save updated tasks in local storage
+      // Sync the updated task status with local storage and state
+      setSubmitted(prevState => ({ ...prevState, [updatedTask.taskId]: false }));
+      localStorage.setItem(`submitted_${updatedTask.taskId}`, false);
+  
+      // Save the updated tasks to local storage
+      setUserManualTasks(prevTasks => [
+        ...prevTasks.filter(t => t.taskId !== updatedTask.taskId),  // Remove the old task (if exists)
+        updatedTask  // Add the updated task
+      ]);
   
     } catch (error) {
       console.error('Error updating task in user\'s document: ', error);
