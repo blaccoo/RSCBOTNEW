@@ -63,9 +63,8 @@ const ManualTasks = () => {
   
   const saveTaskToUser2 = async () => {
     try {
-      
       const userDocRef = doc(db, 'telegramUsers', userId);
-      
+  
       // Fetch the current user's data
       const userDoc = await getDoc(userDocRef);
       if (!userDoc.exists()) {
@@ -77,19 +76,16 @@ const ManualTasks = () => {
       const data = userDoc.data();
       const currentTasks = data.manualTasks || [];
   
-      // Find the task that needs to be updated
+      // Find the task that needs to be deleted
       const taskIndex = currentTasks.findIndex(task => task.taskId === 9); // Assuming taskId is unique
-      
+  
       if (taskIndex === -1) {
         console.log('Task not found');
         return;
       }
   
-      // Update the existing task (modify the task properties as needed)
-      const updatedTask = { ...currentTasks[taskIndex], completed: false }; // example update
-  
-      // Replace the task in the array with the updated one
-      currentTasks[taskIndex] = updatedTask;
+      // Remove the task from the array
+      currentTasks.splice(taskIndex, 1);
   
       // Update the document with the modified tasks array
       await updateDoc(userDocRef, {
@@ -104,33 +100,30 @@ const ManualTasks = () => {
   
       // Update local state for the task
       setLastShareDate(today);
-      console.log('Task updated in user\'s manualTasks collection');
-
-      setUserManualTasks(prevTasks =>
-        prevTasks.map(task =>
-          task.taskId === taskIndex ? { ...task, completed: false } : task
-        )
-      );
+      console.log('Task deleted from user\'s manualTasks collection');
   
-      // Sync the updated task status with local storage and state
-      setSubmitted(prevState => ({ ...prevState, [updatedTask.taskId]: false }));
+      // Update the `userManualTasks` state to remove the deleted task
+      setUserManualTasks(prevTasks => prevTasks.filter(task => task.taskId !== 9));
+  
+      // Sync the deleted task status with local storage and state
+      setSubmitted(prevState => {
+        const updatedState = { ...prevState };
+        delete updatedState[9]; // Remove the task from submitted state
+        return updatedState;
+      });
   
       // Update item in localStorage instead of setting it
       let storedSubmittedTasks = JSON.parse(localStorage.getItem('submittedTasks')) || {};
-      storedSubmittedTasks[updatedTask.taskId] = false;  // Update the task status to false
+      delete storedSubmittedTasks[9]; // Remove the task from localStorage
   
       // Save the updated object back to localStorage
       localStorage.setItem('submittedTasks', JSON.stringify(storedSubmittedTasks));
   
-      // Save the updated tasks to the user manual tasks in local storage
-   
- 
-      
-  
     } catch (error) {
-      console.error('Error updating task in user\'s document: ', error);
+      console.error('Error deleting task from user\'s document: ', error);
     }
   };
+  
   
   
 
@@ -349,6 +342,7 @@ Join now
     const isTaskCompleted = userTask ? userTask.completed : false;
     const isTaskSaved = !!userTask;
 
+  
  
 
         return (
