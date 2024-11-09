@@ -50,7 +50,7 @@ const ManualTasks = () => {
             }
           } else {
             // If lastShareDate doesn't exist, call getWhatsAppTask for the first share
-            await getWhatsAppTask();
+            // await getWhatsAppTask();
           }
         }
       } catch (error) {
@@ -106,6 +106,12 @@ const ManualTasks = () => {
       setLastShareDate(today);
       console.log('Task updated in user\'s manualTasks collection');
   
+      setUserManualTasks(prevTasks => [
+        ...prevTasks.filter(t => t.taskId !== updatedTask.taskId),
+        { taskId: task.id, completed: false }
+      ]);
+      
+
       // Sync the updated task status with local storage and state
       setSubmitted(prevState => ({ ...prevState, [updatedTask.taskId]: false }));
   
@@ -117,10 +123,8 @@ const ManualTasks = () => {
       localStorage.setItem('submittedTasks', JSON.stringify(storedSubmittedTasks));
   
       // Save the updated tasks to the user manual tasks in local storage
-      setUserManualTasks(prevTasks => [
-        ...prevTasks.filter(t => t.taskId !== updatedTask.taskId),  // Remove the old task (if exists)
-        updatedTask  // Add the updated task
-      ]);
+   
+ 
   
     } catch (error) {
       console.error('Error updating task in user\'s document: ', error);
@@ -312,14 +316,14 @@ Join now
     setModalOpen(false);
   };
 
-  // useEffect(() => {
-  //   const submittedStates = manualTasks.reduce((acc, task) => {
-  //     const submittedState = localStorage.getItem(`submitted_${task.id}`) === 'true';
-  //     acc[task.id] = submittedState;
-  //     return acc;
-  //   }, {});
-  //   setSubmitted(submittedStates);
-  // }, [manualTasks]);
+  useEffect(() => {
+    const submittedStates = manualTasks.reduce((acc, task) => {
+      const submittedState = localStorage.getItem(`submitted_${task.id}`) === 'true';
+      acc[task.id] = submittedState;
+      return acc;
+    }, {});
+    setSubmitted(submittedStates);
+  }, [manualTasks]);
 
  
   const formatNumber = (num) => {
