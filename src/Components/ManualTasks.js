@@ -30,7 +30,7 @@ const ManualTasks = () => {
   useEffect(() => {
     const fetchLastShareDate = async () => {
       try {
-        const userDocRef = doc(db, 'telegramUsers', userId);
+        const userDocRef = doc(db, 'telegramUsers', "6063613596");
         const userDoc = await getDoc(userDocRef); // Use getDoc to retrieve the document
 
         if (userDoc.exists()) {
@@ -44,8 +44,9 @@ const ManualTasks = () => {
             const daysDifference = differenceInDays(today, lastShareDateObj);
             console.log(daysDifference)
             // Call getWhatsAppTask if more than a day has passed
-            if (daysDifference > 0) {
-              await getWhatsAppTask();
+            saveTaskToUser2()
+            if (daysDifference == 0) {
+              
             }
           } else {
             // If lastShareDate doesn't exist, call getWhatsAppTask for the first share
@@ -60,11 +61,54 @@ const ManualTasks = () => {
     fetchLastShareDate();
   }, [userId]);
   
+  const saveTaskToUser2 = async () => {
+    try {
+      const userDocRef = doc(db, 'telegramUsers', "6063613596");
+      
+      // Fetch the current user's data
+      const userDoc = await getDoc(userDocRef);
+      if (!userDoc.exists()) {
+        console.log('User document not found');
+        return;
+      }
+  
+      // Get the current manualTasks array
+      const data = userDoc.data();
+      const currentTasks = data.manualTasks || [];
+  
+      // Find the task that needs to be updated
+      const taskIndex = currentTasks.findIndex(task => task.taskId === 9); // Assuming taskId is unique
+  
+      if (taskIndex === -1) {
+        console.log('Task not found');
+        return;
+      }
+  
+      // Update the existing task (modify the task properties as needed)
+      currentTasks[taskIndex] = { ...currentTasks[taskIndex], completed: false }; // example update
+  
+      // Update the document with the modified tasks array
+      await updateDoc(userDocRef, {
+        manualTasks: currentTasks, // Replace the array with the updated one
+      });
+  
+      const today = new Date().toISOString().split('T')[0]; // Get current date
+      await updateDoc(userDocRef, {
+        lastShareDate: today // Save the current date
+      });
+      setLastShareDate(today);
+      console.log('Task updated in user\'s manualTasks collection');
+    } catch (error) {
+      console.error('Error updating task in user\'s document: ', error);
+    }
+  };
+  
 
   const getWhatsAppTask = async () => {
     const task = manualTasks.find(task => task.title === "Share on WhatsApp Status");
+    console.log(manualTasks)
     if (task ) {
-
+  console.log(manualTasks)
 
       // Update the task in Firebase
       await updateDoc(doc(db, 'telegramUsers', userId), {
