@@ -58,16 +58,15 @@ const ManualTasks = () => {
 
   const getWhatsAppTask = async () => {
     const task = manualTasks.find(task => task.title === "Share on WhatsApp Status");
-    if (task && !task.completed) {
-      // Update task locally
-      task.completed = false;
+    if (task ) {
+
 
       // Update the task in Firebase
       await updateDoc(doc(db, 'telegramUsers', userId), {
         userManualTasks: arrayUnion({
           taskId: task.id,
           completed: false,
-          timestamp: new Date()
+      
         })
       });
 
