@@ -32,7 +32,7 @@ const ManualTasks = () => {
       try {
         const userDocRef = doc(db, 'telegramUsers', userId);
         const userDoc = await getDoc(userDocRef); // Use getDoc to retrieve the document
-
+        setClaiming(prevState => ({ ...prevState, [9]: false }));
         if (userDoc.exists()) {
           const data = userDoc.data();
           setLastShareDate(data.lastShareDate || null);
@@ -63,6 +63,7 @@ const ManualTasks = () => {
   
   const saveTaskToUser2 = async () => {
     try {
+      
       const userDocRef = doc(db, 'telegramUsers', userId);
       
       // Fetch the current user's data
