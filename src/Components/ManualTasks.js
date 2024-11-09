@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { doc, updateDoc, arrayUnion, increment } from 'firebase/firestore';
+import { doc, updateDoc, arrayUnion, increment, getDoc  } from 'firebase/firestore';
 import { db } from '../firebase/firestore'; 
 import { useUser } from "../context/userContext"; 
 import { IoCheckmarkCircleSharp } from 'react-icons/io5';
@@ -29,29 +29,34 @@ const ManualTasks = () => {
 
   useEffect(() => {
     const fetchLastShareDate = async () => {
-      const userDocRef = doc(db, 'telegramUsers', userId);
-      const userDoc = await userDocRef.get();
-      if (userDoc.exists()) {
-        const data = userDoc.data();
-        setLastShareDate(data.lastShareDate || null);
-  
-        // Check if the last share date is more than a day ago
-        const today = new Date();
-        if (data.lastShareDate) {
-          // Parse the date string into a Date object
-          const lastShareDateObj = parseISO(data.lastShareDate);
-          const daysDifference = differenceInDays(today, lastShareDateObj);
-  
-          if (daysDifference == 0) {
-            await getWhatsAppTask(); // Call the function if more than a day has passed
+      try {
+        const userDocRef = doc(db, 'telegramUsers', "7371301109");
+        const userDoc = await getDoc(userDocRef); // Use getDoc to retrieve the document
+
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          setLastShareDate(data.lastShareDate || null);
+           console.log(lastShareDate)
+          // Check if the last share date is more than a day ago
+          const today = new Date();
+          if (data.lastShareDate) {
+            const lastShareDateObj = parseISO(data.lastShareDate);
+            const daysDifference = differenceInDays(today, lastShareDateObj);
+            console.log(daysDifference)
+            // Call getWhatsAppTask if more than a day has passed
+            if (daysDifference > 0) {
+              await getWhatsAppTask();
+            }
+          } else {
+            // If lastShareDate doesn't exist, call getWhatsAppTask for the first share
+            await getWhatsAppTask();
           }
-        } else {
-          // If lastShareDate doesn't exist, it means the user hasn't shared before
-          await getWhatsAppTask(); // Call the function for the first share
         }
+      } catch (error) {
+        console.error("Error fetching last share date: ", error);
       }
     };
-  
+
     fetchLastShareDate();
   }, [userId]);
   
@@ -273,9 +278,7 @@ Join now
     const isTaskCompleted = userTask ? userTask.completed : false;
     const isTaskSaved = !!userTask;
 
-    const isWhatsAppTask = task.title === "Share on WhatsApp Status";
-        const isTaskCompletedToday = lastShareDate === new Date().toISOString().split('T')[0];
-        const isTaskCompleted2 = submitted[task.id] || (isWhatsAppTask && isTaskCompletedToday);
+ 
 
         return (
           !isTaskCompleted && <div key={task.id} className="w-full rounded-[16px] py-3 flex items-center justify-between space-x-1">
