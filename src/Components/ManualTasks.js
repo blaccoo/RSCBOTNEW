@@ -105,13 +105,13 @@ const ManualTasks = () => {
       // Update local state for the task
       setLastShareDate(today);
       console.log('Task updated in user\'s manualTasks collection');
-  
-      setUserManualTasks(prevTasks => [
-        ...prevTasks.filter(t => t.taskId !== updatedTask.taskId),
-        { taskId: updatedTask.taskId, completed: false }
-      ]);
-      
 
+      setUserManualTasks(prevTasks =>
+        prevTasks.map(task =>
+          task.taskId === taskIndex ? { ...task, completed: false } : task
+        )
+      );
+  
       // Sync the updated task status with local storage and state
       setSubmitted(prevState => ({ ...prevState, [updatedTask.taskId]: false }));
   
@@ -125,6 +125,7 @@ const ManualTasks = () => {
       // Save the updated tasks to the user manual tasks in local storage
    
  
+      
   
     } catch (error) {
       console.error('Error updating task in user\'s document: ', error);
