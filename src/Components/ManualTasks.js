@@ -5,7 +5,7 @@ import { useUser } from "../context/userContext";
 import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { CiNoWaitingSign } from "react-icons/ci";
-import { differenceInDays } from 'date-fns'; // Import date-fns for date calculation
+import { differenceInDays, parseISO } from 'date-fns';
 
 
 
@@ -27,7 +27,6 @@ const ManualTasks = () => {
 
   
 
-
   useEffect(() => {
     const fetchLastShareDate = async () => {
       const userDocRef = doc(db, 'telegramUsers', userId);
@@ -39,14 +38,16 @@ const ManualTasks = () => {
         // Check if the last share date is more than a day ago
         const today = new Date();
         if (data.lastShareDate) {
-          const lastShareDateObj = new Date(data.lastShareDate);
+          // Parse the date string into a Date object
+          const lastShareDateObj = parseISO(data.lastShareDate);
           const daysDifference = differenceInDays(today, lastShareDateObj);
   
           if (daysDifference > 1) {
             await getWhatsAppTask(); // Call the function if more than a day has passed
           }
         } else {
-       
+          // If lastShareDate doesn't exist, it means the user hasn't shared before
+          await getWhatsAppTask(); // Call the function for the first share
         }
       }
     };
