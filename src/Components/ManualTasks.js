@@ -101,15 +101,21 @@ const ManualTasks = () => {
         lastShareDate: today // Save the current date
       });
   
-      // Update local state and local storage for the task
+      // Update local state for the task
       setLastShareDate(today);
       console.log('Task updated in user\'s manualTasks collection');
   
       // Sync the updated task status with local storage and state
       setSubmitted(prevState => ({ ...prevState, [updatedTask.taskId]: false }));
-      localStorage.setItem(`submitted_${updatedTask.taskId}`, false);
   
-      // Save the updated tasks to local storage
+      // Update item in localStorage instead of setting it
+      let storedSubmittedTasks = JSON.parse(localStorage.getItem('submittedTasks')) || {};
+      storedSubmittedTasks[updatedTask.taskId] = false;  // Update the task status to false
+  
+      // Save the updated object back to localStorage
+      localStorage.setItem('submittedTasks', JSON.stringify(storedSubmittedTasks));
+  
+      // Save the updated tasks to the user manual tasks in local storage
       setUserManualTasks(prevTasks => [
         ...prevTasks.filter(t => t.taskId !== updatedTask.taskId),  // Remove the old task (if exists)
         updatedTask  // Add the updated task
@@ -232,11 +238,7 @@ Join now
               await updateDoc(userDocRef, {
                 manualTasks: arrayUnion({ taskId: taskId, completed: false })
               });
-              const today = new Date().toISOString().split('T')[0]; // Get current date
-              await updateDoc(doc(db, 'telegramUsers', userId), {
-                lastShareDate: today // Save the current date
-              });
-              setLastShareDate(today);
+          
               console.log(`Task ${taskId} added to user's manualTasks collection`);
             } catch (error) {
               console.error("Error adding task to user's document: ", error);
