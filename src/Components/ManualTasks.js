@@ -312,14 +312,14 @@ Join now
     setModalOpen(false);
   };
 
-  useEffect(() => {
-    const submittedStates = manualTasks.reduce((acc, task) => {
-      const submittedState = localStorage.getItem(`submitted_${task.id}`) === 'true';
-      acc[task.id] = submittedState;
-      return acc;
-    }, {});
-    setSubmitted(submittedStates);
-  }, [manualTasks]);
+  // useEffect(() => {
+  //   const submittedStates = manualTasks.reduce((acc, task) => {
+  //     const submittedState = localStorage.getItem(`submitted_${task.id}`) === 'true';
+  //     acc[task.id] = submittedState;
+  //     return acc;
+  //   }, {});
+  //   setSubmitted(submittedStates);
+  // }, [manualTasks]);
 
  
   const formatNumber = (num) => {
